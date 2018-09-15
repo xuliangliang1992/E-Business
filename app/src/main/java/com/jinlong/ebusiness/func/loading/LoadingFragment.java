@@ -12,6 +12,7 @@ import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
 import com.jinlong.ebusiness.constant.Constant;
 import com.jinlong.ebusiness.dialog.DialogManager;
+import com.jinlong.ebusiness.func.main.MainActivity;
 import com.xll.mvplib.view.ItemClickListener;
 
 /**
@@ -37,7 +38,7 @@ public class LoadingFragment extends BaseFragment {
                 public void onItemClickListener(View view, int position) {
                     switch (position) {
                         case 0:
-
+                            RouteTo(MainActivity.class);
                             break;
                         case 1:
 

@@ -13,6 +13,7 @@ import com.jinlong.ebusiness.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
 /**
  * @author xll
@@ -29,12 +30,13 @@ public abstract class BaseActivity extends AppCompatActivity {
     TextView mTvRight;
     @BindView(R.id.app_bar)
     AppBarLayout mAppBar;
+    Unbinder unbinder;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.base_activity);
-        ButterKnife.bind(this);
+        unbinder = ButterKnife.bind(this);
     }
 
     protected void setTitle(String title) {
@@ -53,5 +55,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     @OnClick(R.id.ll_back)
     public void onViewClicked() {
         finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
     }
 }

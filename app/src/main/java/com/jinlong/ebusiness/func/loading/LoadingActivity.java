@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseActivity;
-import com.orhanobut.logger.Logger;
 import com.xll.mvplib.utils.ActivityUtils;
 
 /**
@@ -19,13 +18,12 @@ public class LoadingActivity extends BaseActivity{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         hideTitleBar();
-        Logger.d("是你吗 ");
+
         LoadingFragment loadingFragment = (LoadingFragment) getSupportFragmentManager().findFragmentById(R.id.fl_content);
         if (null == loadingFragment) {
             loadingFragment = LoadingFragment.newInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), loadingFragment, R.id.fl_content);
         }
-
 
     }
 }
