@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/E-Business.iml" filepath="$PROJECT_DIR$/E-Business.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ebusiness.iml" filepath="$PROJECT_DIR$/ebusiness.iml" />
+      <module fileurl="file://E:\ebusiness\E-Business\app\app.iml" filepath="E:\ebusiness\E-Business\app\app.iml" />
+      <module fileurl="file://E:\ebusiness\E-Business\ebusiness.iml" filepath="E:\ebusiness\E-Business\ebusiness.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mvplib/mvplib.iml" filepath="$PROJECT_DIR$/mvplib/mvplib.iml" />
     </modules>
   </component>
 </project>
