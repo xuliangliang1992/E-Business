@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
 
 /**
@@ -27,6 +28,8 @@ public class MineFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.me_fragment, container, false);
+
+        return view;
     }
 }

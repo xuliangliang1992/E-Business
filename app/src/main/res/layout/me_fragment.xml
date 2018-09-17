@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/y20"
+            android:text="我的"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <View
+            style="@style/viewLine"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_not_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/y30"
+            android:paddingTop="@dimen/y30"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/tv_title">
+
+            <ImageView
+                android:id="@+id/iv_head"
+                android:layout_width="@dimen/x150"
+                android:layout_height="@dimen/y150"
+                android:layout_marginStart="@dimen/x50"
+                android:src="@mipmap/ic_launcher"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/iv_head"
+                android:text="请登录/注册"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/y30"
+            android:paddingTop="@dimen/y30"
+            app:layout_constraintTop_toBottomOf="@id/rl_not_login">
+
+            <ImageView
+                android:id="@+id/iv_head_portrait"
+                android:layout_width="@dimen/x150"
+                android:layout_height="@dimen/y150"
+                android:layout_marginStart="@dimen/x50"
+                android:src="@mipmap/ic_launcher"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/iv_head_portrait"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/arrow"/>
+        </RelativeLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rl_login"
+            >
+
+            <View
+                style="@style/viewLine"
+                />
+
+            <LinearLayout
+                android:id="@+id/rl_collectibles"
+                style="@style/meLinearLayout"
+                app:layout_constraintEnd_toStartOf="@+id/rl_collection_shop"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher"/>
+
+                <TextView
+                    style="@style/meLinearLayoutTextView"
+                    android:text="收藏的商品"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rl_collection_shop"
+                style="@style/meLinearLayout"
+                app:layout_constraintEnd_toStartOf="@+id/rl_orders"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/rl_collectibles">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher"/>
+
+                <TextView
+                    style="@style/meLinearLayoutTextView"
+                    android:text="收藏的店铺"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rl_orders"
+                style="@style/meLinearLayout"
+                app:layout_constraintEnd_toStartOf="@+id/rl_message"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/rl_collection_shop">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher"/>
+
+                <TextView
+                    style="@style/meLinearLayoutTextView"
+                    android:text="我的订单"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rl_message"
+                style="@style/meLinearLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/rl_orders">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher"/>
+
+                <TextView
+                    style="@style/meLinearLayoutTextView"
+                    android:text="消息列表"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_modify_password"
+                style="@style/meTextView"
+                android:text="修改密码"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rl_collectibles"/>
+
+            <View
+                style="@style/viewLineMarginLeftRight"
+                app:layout_constraintTop_toBottomOf="@+id/tv_modify_password"/>
+
+            <TextView
+                android:id="@+id/tv_shipping_address"
+                style="@style/meTextView"
+                android:text="收货地址"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_modify_password"/>
+
+            <View
+                style="@style/viewLineMarginLeftRight"
+                app:layout_constraintTop_toBottomOf="@+id/tv_shipping_address"/>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_about_company"
+            style="@style/meTextView"
+            android:text="关于公司"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_login"/>
+
+
+        <View
+            style="@style/viewLineMarginLeftRight"
+            app:layout_constraintTop_toBottomOf="@+id/tv_about_company"/>
+
+        <TextView
+            android:id="@+id/tv_FAQ"
+            style="@style/meTextView"
+            android:text="常见问题"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_about_company"/>
+
+        <View
+            style="@style/viewLineMarginLeftRight"
+            app:layout_constraintTop_toBottomOf="@+id/tv_FAQ"/>
+
+        <TextView
+            android:id="@+id/tv_feedback"
+            style="@style/meTextView"
+            android:text="意见反馈"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_FAQ"/>
+
+        <View
+            style="@style/viewLineMarginLeftRight"
+            app:layout_constraintTop_toBottomOf="@+id/tv_feedback"/>
+
+        <TextView
+            style="@style/meTextView"
+            android:drawableEnd="@null"
+            android:text="语言切换"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_feedback"
+            />
+
+        <TextView
+            android:id="@+id/tv_language"
+            style="@style/meTextView"
+            android:drawableEnd="@null"
+            android:gravity="center_vertical|right"
+            android:text="中文"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_feedback"
+            />
+
+        <View
+            style="@style/viewLineMarginLeftRight"
+            app:layout_constraintTop_toBottomOf="@+id/tv_language"/>
+
+        <TextView
+            android:id="@+id/tv_new_guidelines"
+            style="@style/meTextView"
+            android:text="新手指引"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_language"/>
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>

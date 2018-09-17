@@ -13,18 +13,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <View
+        style="@style/viewLine"
+        app:layout_constraintBottom_toTopOf="@+id/tab_layout"/>
+
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="0dp"
         android:layout_height="@dimen/y100"
+        android:layout_gravity="center"
+        android:background="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:tabGravity="fill"
-        app:tabTextColor="@color/black"
-        android:background="@android:color/white"
         app:tabIndicatorHeight="0dp"
-        android:layout_gravity="center"
+        app:tabMode="fixed"
         app:tabSelectedTextColor="@android:color/holo_red_light"
-        app:tabMode="fixed"/>
+        app:tabTextColor="@color/black"/>
 </android.support.constraint.ConstraintLayout>

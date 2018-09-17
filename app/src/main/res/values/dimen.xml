@@ -11,8 +11,8 @@
     <dimen name="text_size_20">@dimen/x20</dimen><!-- 正常的页面显示文字大小-->
 
     <dimen name="padding_left_right">@dimen/x30</dimen><!-- 左右边距 -->
-    <dimen name="padding_top_bottom">@dimen/y20</dimen><!-- 上下边距 -->
-    <dimen name="padding_top_bottom_30">@dimen/y30</dimen><!-- 上下边距 -->
+    <dimen name="padding_top_bottom">@dimen/y30</dimen><!-- 上下边距 -->
+    <dimen name="padding_top_bottom_20">@dimen/y20</dimen><!-- 上下边距 -->
 
     <!-- 工具主页图标大小 -->
     <dimen name="icon_x">@dimen/x64</dimen>
