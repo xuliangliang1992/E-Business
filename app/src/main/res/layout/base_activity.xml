@@ -19,8 +19,7 @@
             android:id="@+id/tool_bar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            >
+            android:layout_gravity="center">
 
             <LinearLayout
                 android:id="@+id/ll_back"
@@ -43,7 +42,6 @@
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_title"/>
-
 
             <TextView
                 android:id="@+id/tv_right"

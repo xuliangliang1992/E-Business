@@ -1,4 +1,4 @@
-package com.jinlong.ebusiness.func.classify;
+package com.jinlong.ebusiness.func.category;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,9 +14,9 @@ import com.jinlong.ebusiness.base.BaseFragment;
  * @date 2018/9/15
  */
 
-public class ClassifyFragment extends BaseFragment {
-    public static ClassifyFragment newInstance() {
-        return new ClassifyFragment();
+public class CategoryFragment extends BaseFragment {
+    public static CategoryFragment newInstance() {
+        return new CategoryFragment();
     }
 
     @Override

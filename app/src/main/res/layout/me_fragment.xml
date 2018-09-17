@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,7 +16,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/y20"
-            android:text="我的"
+            android:text="@string/mine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
@@ -31,7 +30,6 @@
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/y30"
             android:paddingTop="@dimen/y30"
-            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/tv_title">
 
             <ImageView
@@ -46,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/iv_head"
-                android:text="请登录/注册"/>
+                android:text="@string/login_register"/>
 
         </RelativeLayout>
 
@@ -56,6 +54,7 @@
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/y30"
             android:paddingTop="@dimen/y30"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/rl_not_login">
 
             <ImageView
@@ -69,8 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/iv_head_portrait"
-                />
+                android:layout_toRightOf="@+id/iv_head_portrait"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -84,14 +82,12 @@
             android:id="@+id/cl_login"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rl_login"
-            >
+            app:layout_constraintTop_toBottomOf="@+id/rl_login">
 
-            <View
-                style="@style/viewLine"
-                />
+            <View style="@style/viewLine"/>
 
             <LinearLayout
                 android:id="@+id/rl_collectibles"
@@ -107,7 +103,7 @@
 
                 <TextView
                     style="@style/meLinearLayoutTextView"
-                    android:text="收藏的商品"/>
+                    android:text="@string/collectibles"/>
             </LinearLayout>
 
             <LinearLayout
@@ -124,7 +120,7 @@
 
                 <TextView
                     style="@style/meLinearLayoutTextView"
-                    android:text="收藏的店铺"/>
+                    android:text="@string/collection_shop"/>
             </LinearLayout>
 
             <LinearLayout
@@ -141,7 +137,7 @@
 
                 <TextView
                     style="@style/meLinearLayoutTextView"
-                    android:text="我的订单"/>
+                    android:text="@string/my_orders"/>
             </LinearLayout>
 
             <LinearLayout
@@ -158,13 +154,13 @@
 
                 <TextView
                     style="@style/meLinearLayoutTextView"
-                    android:text="消息列表"/>
+                    android:text="@string/message_list"/>
             </LinearLayout>
 
             <TextView
                 android:id="@+id/tv_modify_password"
                 style="@style/meTextView"
-                android:text="修改密码"
+                android:text="@string/modify_password"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rl_collectibles"/>
@@ -176,7 +172,7 @@
             <TextView
                 android:id="@+id/tv_shipping_address"
                 style="@style/meTextView"
-                android:text="收货地址"
+                android:text="@string/shipping_address"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_modify_password"/>
@@ -185,17 +181,15 @@
                 style="@style/viewLineMarginLeftRight"
                 app:layout_constraintTop_toBottomOf="@+id/tv_shipping_address"/>
 
-
         </android.support.constraint.ConstraintLayout>
 
         <TextView
             android:id="@+id/tv_about_company"
             style="@style/meTextView"
-            android:text="关于公司"
+            android:text="@string/about_company"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cl_login"/>
-
 
         <View
             style="@style/viewLineMarginLeftRight"
@@ -204,7 +198,7 @@
         <TextView
             android:id="@+id/tv_FAQ"
             style="@style/meTextView"
-            android:text="常见问题"
+            android:text="@string/FAQ"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_about_company"/>
@@ -216,7 +210,7 @@
         <TextView
             android:id="@+id/tv_feedback"
             style="@style/meTextView"
-            android:text="意见反馈"
+            android:text="@string/feedback"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_FAQ"/>
@@ -228,22 +222,20 @@
         <TextView
             style="@style/meTextView"
             android:drawableEnd="@null"
-            android:text="语言切换"
+            android:text="@string/language_switch"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_feedback"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/tv_feedback"/>
 
         <TextView
             android:id="@+id/tv_language"
             style="@style/meTextView"
             android:drawableEnd="@null"
-            android:gravity="center_vertical|right"
-            android:text="中文"
+            android:gravity="center_vertical|end"
+            android:text="@string/language_chinese"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_feedback"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/tv_feedback"/>
 
         <View
             style="@style/viewLineMarginLeftRight"
@@ -252,7 +244,7 @@
         <TextView
             android:id="@+id/tv_new_guidelines"
             style="@style/meTextView"
-            android:text="新手指引"
+            android:text="@string/new_guidelines"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_language"/>

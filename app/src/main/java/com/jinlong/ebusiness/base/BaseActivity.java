@@ -1,14 +1,23 @@
 package com.jinlong.ebusiness.base;
 
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jinlong.ebusiness.R;
+import com.jinlong.ebusiness.constant.Constant;
+import com.xll.mvplib.utils.SharePreferenceUtil;
+
+import org.greenrobot.eventbus.EventBus;
+
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +46,31 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.base_activity);
         unbinder = ButterKnife.bind(this);
+        EventBus.getDefault().register(this);
+        changeAppLanguage();
+    }
+
+    public void changeAppLanguage() {
+        //这是SharedPreferences工具类，用于保存设置，代码很简单，自己实现吧
+        String sta = (String) SharePreferenceUtil.getInstance().get(this, Constant.SHARE_PERFERENCE_FILE_NAME, SharePreferenceUtil.LANGUAGE, Constant.CHINESE);
+        // 本地语言设置
+        Locale myLocale = new Locale(sta);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+    }
+
+    public void onEvent(String str) {
+        switch (str) {
+            case Constant.EVENT_REFRESH_LANGUAGE:
+                changeAppLanguage();
+                recreate();//刷新界面
+                break;
+            default:
+                break;
+        }
     }
 
     protected void setTitle(String title) {
@@ -61,5 +95,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         unbinder.unbind();
+        EventBus.getDefault().unregister(this);
     }
 }

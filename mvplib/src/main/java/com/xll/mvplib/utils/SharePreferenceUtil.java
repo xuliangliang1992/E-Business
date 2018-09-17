@@ -13,6 +13,7 @@ import java.util.Map;
  */
 public class SharePreferenceUtil {
     public static final String HEADER_TOKEN = "auth_token";
+    public static final String LANGUAGE = "language";
 //    public static final String TOKEN = "token";
     public static final String CUST_ID = "cusId";
     public static final String CUST_ACCOUNT = "cusAccount";     //  用户账号

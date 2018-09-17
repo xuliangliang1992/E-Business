@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="language_chinese">Chinese</string>
+    <string name="language_english">English</string>
+    <string name="mine">Mine</string>
+    <string name="login_register">Please Login/Register</string>
+    <string name="collectibles">Collectibles</string>
+    <string name="collection_shop">Collection Shop</string>
+    <string name="my_orders">MyOrder</string>
+    <string name="message_list">Message List</string>
+    <string name="modify_password">Modify Password</string>
+    <string name="shipping_address">Shipping Address</string>
+    <string name="about_company">About Company</string>
+    <string name="FAQ">FAQ</string>
+    <string name="feedback">Feedback</string>
+    <string name="language_switch">Language Switch</string>
+    <string name="new_guidelines">New Guidelines</string>
+    <string name="home">Home</string>
+    <string name="classify">Category</string>
+    <string name="cart">Cart</string>
+</resources>

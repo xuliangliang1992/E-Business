@@ -14,6 +14,12 @@ import android.widget.TextView;
 
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
+import com.jinlong.ebusiness.constant.Constant;
+import com.jinlong.ebusiness.dialog.DialogManager;
+import com.xll.mvplib.utils.SharePreferenceUtil;
+import com.xll.mvplib.view.ItemClickListener;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -71,8 +77,12 @@ public class MineFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.me_fragment, container, false);
-
         unbinder = ButterKnife.bind(this, view);
+
+        String sta = (String) SharePreferenceUtil.getInstance().get(getActivity(), Constant.SHARE_PERFERENCE_FILE_NAME, SharePreferenceUtil.LANGUAGE, Constant.CHINESE);
+        if (Constant.ENGLISH.equals(sta)) {
+            mTvLanguage.setText(R.string.language_english);
+        }
         return view;
     }
 
@@ -120,6 +130,18 @@ public class MineFragment extends BaseFragment {
                 break;
             case R.id.tv_language:
                 //语言切换
+                DialogManager.getInstance().showBottomListDialog(getActivity(), new String[]{getString(R.string.language_chinese), getString(R.string.language_english)}, new ItemClickListener() {
+                    @Override
+                    public void onItemClickListener(View view, int position) {
+                        if (position == 0) {
+                            SharePreferenceUtil.getInstance().put(getActivity(), Constant.SHARE_PERFERENCE_FILE_NAME, SharePreferenceUtil.LANGUAGE, Constant.CHINESE);
+                            EventBus.getDefault().post(Constant.EVENT_REFRESH_LANGUAGE);
+                        } else if (position == 1) {
+                            SharePreferenceUtil.getInstance().put(getActivity(), Constant.SHARE_PERFERENCE_FILE_NAME, SharePreferenceUtil.LANGUAGE, Constant.ENGLISH);
+                            EventBus.getDefault().post(Constant.EVENT_REFRESH_LANGUAGE);
+                        }
+                    }
+                });
                 break;
             case R.id.tv_new_guidelines:
                 //新手引导

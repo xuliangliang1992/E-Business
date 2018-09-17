@@ -34,7 +34,7 @@ dependencies {
     implementation "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
 
-    implementation 'com.alibaba.android:tangram:3.1.5@aar'
+    implementation 'org.greenrobot:eventbus:3.0.0'
     implementation ('com.alibaba.android:vlayout:1.2.17@aar') {
         transitive = true
     }

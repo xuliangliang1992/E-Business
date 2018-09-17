@@ -11,4 +11,9 @@ public class Constant {
      */
     public static final boolean IS_DEBUG = true;
 
+    public static final String EVENT_REFRESH_LANGUAGE = "event_refresh_language";
+    public static final String SHARE_PERFERENCE_FILE_NAME = "jinlong";
+    public static final String CHINESE = "zh";
+    public static final String ENGLISH = "en";
+
 }

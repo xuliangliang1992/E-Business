@@ -3,6 +3,7 @@ package com.jinlong.ebusiness.dialog;
 import android.content.Context;
 import android.util.SparseArray;
 
+import com.xll.mvplib.dialog.BottomListDialog;
 import com.xll.mvplib.dialog.MiddleListDialog;
 import com.xll.mvplib.dialog.base.BaseDialog;
 import com.xll.mvplib.view.ItemClickListener;
@@ -45,6 +46,11 @@ public class DialogManager {
      */
     public void showAddressDialog(Context context, String title, SparseArray<String> listData, ItemClickListener itemClickListener) {
         mDialog = new MiddleListDialog(context, title, listData, itemClickListener);
+        mDialog.show();
+    }
+
+    public void showBottomListDialog(Context context, String[] titles, ItemClickListener itemClickListener) {
+        mDialog = new BottomListDialog(context, titles, itemClickListener);
         mDialog.show();
     }
 }

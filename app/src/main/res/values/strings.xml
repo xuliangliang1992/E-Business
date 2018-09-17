@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">金龙电商</string>
+    <string name="app_name">ebusiness</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_english">英文</string>
+    <string name="mine">我的</string>
+    <string name="login_register">请登录/注册</string>
+    <string name="collectibles">收藏的商品</string>
+    <string name="collection_shop">收藏的店铺</string>
+    <string name="my_orders">我的订单</string>
+    <string name="message_list">消息列表</string>
+    <string name="modify_password">修改密码</string>
+    <string name="shipping_address">收货地址</string>
+    <string name="about_company">关于公司</string>
+    <string name="FAQ">常见问题</string>
+    <string name="feedback">意见反馈</string>
+    <string name="language_switch">语言切换</string>
+    <string name="new_guidelines">新手指引</string>
+    <string name="home">首页</string>
+    <string name="classify">分类</string>
+    <string name="cart">购物车</string>
 </resources>

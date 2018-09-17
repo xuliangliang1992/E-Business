@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
 import com.jinlong.ebusiness.func.cart.ShoppingCartFragment;
-import com.jinlong.ebusiness.func.classify.ClassifyFragment;
+import com.jinlong.ebusiness.func.category.CategoryFragment;
 import com.jinlong.ebusiness.func.home.HomeFragment;
 import com.jinlong.ebusiness.func.mine.MineFragment;
 
@@ -74,10 +74,10 @@ public class MainFragment extends BaseFragment {
     private void initResource() {
         fragments = new ArrayList<>();
         //        imgRes = new int[]{R.drawable.main_tab_menu01_selector, R.drawable.main_tab_menu02_selector, R.drawable.main_tab_menu04_selector};
-        titles = new String[]{"首页", "分类", "购物车", "我的"};
+        titles = new String[]{getString(R.string.home), getString(R.string.classify), getString(R.string.cart), getString(R.string.mine)};
 
         fragments.add(HomeFragment.newInstance());
-        fragments.add(ClassifyFragment.newInstance());
+        fragments.add(CategoryFragment.newInstance());
         fragments.add(ShoppingCartFragment.newInstance());
         fragments.add(MineFragment.newInstance());
 

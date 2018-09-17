@@ -7,6 +7,8 @@ import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseActivity;
 import com.xll.mvplib.utils.ActivityUtils;
 
+import org.greenrobot.eventbus.Subscribe;
+
 /**
  * @author xll
  * @date 2018/9/15
@@ -25,5 +27,11 @@ public class LoadingActivity extends BaseActivity{
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), loadingFragment, R.id.fl_content);
         }
 
+    }
+
+    @Override
+    @Subscribe
+    public void onEvent(String str) {
+        super.onEvent(str);
     }
 }
