@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,9 +39,8 @@ public class HomeFragment extends BaseFragment {
     Unbinder unbinder;
 
     private ArrayList<HashMap<String, Object>> listItem;
-    MyAdapter Adapter_linearLayout,Adapter_GridLayout,Adapter_FixLayout,Adapter_ScrollFixLayout
-            ,Adapter_FloatLayout,Adapter_ColumnLayout,Adapter_SingleLayout,Adapter_onePlusNLayout,
-            Adapter_StickyLayout,Adapter_StaggeredGridLayout;
+    MyAdapter searchAdapterSingleLayout, Adapter_linearLayout, Adapter_GridLayout, Adapter_FixLayout, Adapter_ScrollFixLayout, Adapter_FloatLayout, Adapter_ColumnLayout, bannerAdapterSingleLayout, newAdapterSingleLayout, hotProductAdapterSingleLayout, hotSaleAdapterSingleLayout, Adapter_onePlusNLayout,
+            Adapter_StickyLayout, Adapter_StaggeredGridLayout;
 
     public static HomeFragment newInstance() {
         return new HomeFragment();
@@ -105,81 +105,96 @@ public class HomeFragment extends BaseFragment {
         // 设置布局底部与下个布局的间隔
 
         // 创建自定义的Adapter对象 & 绑定数据 & 绑定对应的LayoutHelper进行布局绘制
-        Adapter_linearLayout  = new MyAdapter(getActivity(), linearLayoutHelper, 10, listItem) {
-            // 参数2:绑定绑定对应的LayoutHelper
-            // 参数3:传入该布局需要显示的数据个数
-            // 参数4:传入需要绑定的数据
-
-            // 通过重写onBindViewHolder()设置更丰富的布局效果
-            @Override
-            public void onBindViewHolder(MainViewHolder holder, int position) {
-                super.onBindViewHolder(holder, position);
-                // 为了展示效果,将布局的第一个数据设置为linearLayout
-                if (position == 0) {
-                    holder.Text.setText("Linear");
-                }
-
-                //为了展示效果,将布局里不同位置的Item进行背景颜色设置
-                if (position < 2) {
-                    holder.itemView.setBackgroundColor(0x66cc0000 + (position - 6) * 128);
-                } else if (position % 2 == 0) {
-                    holder.itemView.setBackgroundColor(0xaa22ff22);
-                } else {
-                    holder.itemView.setBackgroundColor(0xccff22ff);
-                }
-
-
-            }
-        };
+        Adapter_linearLayout = new MyAdapter(getActivity(), linearLayoutHelper, 10, listItem, 2);
         /**
          设置吸边布局
          */
         StickyLayoutHelper stickyLayoutHelper = new StickyLayoutHelper();
 
         // 公共属性
-        stickyLayoutHelper.setItemCount(3);// 设置布局里Item个数
-        stickyLayoutHelper.setPadding(20, 20, 20, 20);// 设置LayoutHelper的子元素相对LayoutHelper边缘的距离
-        stickyLayoutHelper.setMargin(20, 20, 20, 20);// 设置LayoutHelper边缘相对父控件（即RecyclerView）的距离
-        stickyLayoutHelper.setBgColor(Color.GRAY);// 设置背景颜色
-        stickyLayoutHelper.setAspectRatio(3);// 设置设置布局内每行布局的宽与高的比
+        //        stickyLayoutHelper.setItemCount(3);// 设置布局里Item个数
+        //        stickyLayoutHelper.setPadding(20, 20, 20, 20);// 设置LayoutHelper的子元素相对LayoutHelper边缘的距离
+        //        stickyLayoutHelper.setMargin(20, 20, 20, 20);// 设置LayoutHelper边缘相对父控件（即RecyclerView）的距离
+        //        stickyLayoutHelper.setBgColor(Color.GRAY);// 设置背景颜色
+        //        stickyLayoutHelper.setAspectRatio(3);// 设置设置布局内每行布局的宽与高的比
 
         // 特有属性
         stickyLayoutHelper.setStickyStart(true);
         // true = 组件吸在顶部
         // false = 组件吸在底部
+        //
+        //        stickyLayoutHelper.setOffset(50);// 设置吸边位置的偏移量
 
-        stickyLayoutHelper.setOffset(100);// 设置吸边位置的偏移量
-
-        Adapter_StickyLayout = new MyAdapter(getActivity(), stickyLayoutHelper,1, listItem) {
-            // 设置需要展示的数据总数,此处设置是1
-            // 为了展示效果,通过重写onBindViewHolder()将布局的第一个数据设置为Stick
+        Adapter_StickyLayout = new MyAdapter(getActivity(), stickyLayoutHelper, 1, listItem, 1) {
             @Override
-            public void onBindViewHolder(MainViewHolder holder, int position) {
-                super.onBindViewHolder(holder, position);
-                if (position == 0) {
-                    holder.Text.setText("Stick");
-                }
+            public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
+                LinearItemViewHolder holder = (LinearItemViewHolder) viewHolder;
+                holder.mTvLeft.setText("类别筛选");
+                holder.mTvRight.setText("建材/家具 ");
             }
         };
 
-        SingleLayoutHelper singleLayoutHelper = new SingleLayoutHelper();
+        SingleLayoutHelper newSingleLayoutHelper = new SingleLayoutHelper();
         // 公共属性
-        singleLayoutHelper.setItemCount(3);// 设置布局里Item个数
-        singleLayoutHelper.setPadding(20, 20, 20, 20);// 设置LayoutHelper的子元素相对LayoutHelper边缘的距离
-        singleLayoutHelper.setMargin(20, 20, 20, 20);// 设置LayoutHelper边缘相对父控件（即RecyclerView）的距离
-        singleLayoutHelper.setBgColor(Color.GRAY);// 设置背景颜色
-        singleLayoutHelper.setAspectRatio(6);// 设置设置布局内每行布局的宽与高的比
+        //        singleLayoutHelper.setItemCount(3);// 设置布局里Item个数
+        //        singleLayoutHelper.setPadding(20, 20, 20, 20);// 设置LayoutHelper的子元素相对LayoutHelper边缘的距离
+        //        singleLayoutHelper.setMargin(20, 20, 20, 20);// 设置LayoutHelper边缘相对父控件（即RecyclerView）的距离
+        //        singleLayoutHelper.setBgColor(Color.GRAY);// 设置背景颜色
+        //        singleLayoutHelper.setAspectRatio(6);// 设置设置布局内每行布局的宽与高的比
+        //
 
-
-        Adapter_SingleLayout = new MyAdapter(getActivity(), singleLayoutHelper,1, listItem) {
-            // 设置需要展示的数据总数,此处设置是1
-            // 为了展示效果,通过重写onBindViewHolder()将布局的第一个数据设置为Single
+        newAdapterSingleLayout = new MyAdapter(getActivity(), newSingleLayoutHelper, 1, listItem, MyAdapter.ONE_ITEM) {
             @Override
-            public void onBindViewHolder(MainViewHolder holder, int position) {
-                super.onBindViewHolder(holder, position);
-                if (position == 0) {
-                    holder.Text.setText("Single");
-                }
+            public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
+                LinearItemViewHolder holder = (LinearItemViewHolder) viewHolder;
+                holder.mTvLeft.setText("最新上架");
+                holder.mTvRight.setText("查看全部");
+            }
+        };
+        SingleLayoutHelper bannerSingleLayoutHelper = new SingleLayoutHelper();
+        // 公共属性
+        bannerSingleLayoutHelper.setItemCount(3);// 设置布局里Item个数
+        bannerSingleLayoutHelper.setPadding(20, 20, 20, 20);// 设置LayoutHelper的子元素相对LayoutHelper边缘的距离
+        bannerSingleLayoutHelper.setMargin(20, 20, 20, 20);// 设置LayoutHelper边缘相对父控件（即RecyclerView）的距离
+        bannerSingleLayoutHelper.setBgColor(Color.GRAY);// 设置背景颜色
+        bannerSingleLayoutHelper.setAspectRatio(6);// 设置设置布局内每行布局的宽与高的比
+        //
+
+        bannerAdapterSingleLayout = new MyAdapter(getActivity(), bannerSingleLayoutHelper, 1, listItem, MyAdapter.ONE_ITEM) {
+            @Override
+            public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
+                LinearItemViewHolder holder = (LinearItemViewHolder) viewHolder;
+                holder.mTvLeft.setText("banner");
+            }
+        };
+        SingleLayoutHelper hotProductSingleLayoutHelper = new SingleLayoutHelper();
+
+        hotProductAdapterSingleLayout = new MyAdapter(getActivity(), hotProductSingleLayoutHelper, 1, listItem, MyAdapter.ONE_ITEM) {
+            @Override
+            public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
+                LinearItemViewHolder holder = (LinearItemViewHolder) viewHolder;
+                holder.mTvLeft.setText("热门商品");
+                holder.mTvRight.setText("查看全部");
+            }
+        };
+        SingleLayoutHelper hotSaleSingleLayoutHelper = new SingleLayoutHelper();
+
+        hotSaleAdapterSingleLayout = new MyAdapter(getActivity(), hotSaleSingleLayoutHelper, 1, listItem, MyAdapter.ONE_ITEM) {
+            @Override
+            public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
+                LinearItemViewHolder holder = (LinearItemViewHolder) viewHolder;
+                holder.mTvLeft.setText("热卖专场");
+            }
+        };
+        SingleLayoutHelper searchSingleLayout = new SingleLayoutHelper();
+
+        searchAdapterSingleLayout = new MyAdapter(getActivity(), searchSingleLayout, 1, listItem, MyAdapter.ONE_ITEM) {
+            @Override
+            public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
+                LinearItemViewHolder holder = (LinearItemViewHolder) viewHolder;
+                holder.mTvLeft.setText("搜索商品名或者店铺名");
+                holder.mTvLeft.setGravity(Gravity.CENTER);
+                holder.mTvRight.setVisibility(View.GONE);
             }
         };
         /**
@@ -190,16 +205,22 @@ public class HomeFragment extends BaseFragment {
         List<DelegateAdapter.Adapter> adapters = new LinkedList<>();
 
         // 2. 将上述创建的Adapter对象放入到DelegateAdapter.Adapter列表里
-        adapters.add(Adapter_StickyLayout) ;
-        adapters.add(Adapter_SingleLayout) ;
-        adapters.add(Adapter_linearLayout) ;
+        adapters.add(searchAdapterSingleLayout);
+        adapters.add(bannerAdapterSingleLayout);
+        adapters.add(hotProductAdapterSingleLayout);
+        adapters.add(Adapter_linearLayout);
+        adapters.add(newAdapterSingleLayout);
+        adapters.add(Adapter_linearLayout);
+        adapters.add(hotSaleAdapterSingleLayout);
+        adapters.add(Adapter_StickyLayout);
+        adapters.add(Adapter_linearLayout);
         //        adapters.add(Adapter_ScrollFixLayout) ;
         //        adapters.add(Adapter_GridLayout) ;
         //        adapters.add(Adapter_FixLayout) ;
         //        adapters.add(Adapter_FloatLayout) ;
         //        adapters.add(Adapter_ColumnLayout) ;
-//        adapters.add(Adapter_onePlusNLayout) ;
-//        adapters.add(Adapter_StaggeredGridLayout) ;
+        //        adapters.add(Adapter_onePlusNLayout) ;
+        //        adapters.add(Adapter_StaggeredGridLayout) ;
 
 
         //
