@@ -5,7 +5,7 @@
     <string name="mine">我的</string>
     <string name="login_register">请登录/注册</string>
     <string name="collectibles">收藏的商品</string>
-    <string name="collection_shop">收藏的店铺</string>
+    <string name="collection_store">收藏的店铺</string>
     <string name="my_orders">我的订单</string>
     <string name="message_list">消息列表</string>
     <string name="modify_password">修改密码</string>
@@ -18,4 +18,17 @@
     <string name="home">首页</string>
     <string name="classify">分类</string>
     <string name="cart">购物车</string>
+    <string name="add_shipping_address">添加收货地址</string>
+    <string name="modify_shipping_address">编辑收货地址</string>
+    <string name="consignee">收货人</string>
+    <string name="phone_no">手机号</string>
+    <string name="region">所在地区</string>
+    <string name="detailed_address">详细地址</string>
+    <string name="set_as_default_address">设为默认地址</string>
+    <string name="system_message">系统消息</string>
+    <string name="notification">通知</string>
+    <string name="manage">管理</string>
+    <string name="my_favorite">我的收藏</string>
+    <string name="store">店铺</string>
+    <string name="merchandise">商品</string>
 </resources>

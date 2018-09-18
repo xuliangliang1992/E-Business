@@ -16,6 +16,11 @@ import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
 import com.jinlong.ebusiness.constant.Constant;
 import com.jinlong.ebusiness.dialog.DialogManager;
+import com.jinlong.ebusiness.func.mine.collection.CollectionListActivity;
+import com.jinlong.ebusiness.func.mine.message.MessageListActivity;
+import com.jinlong.ebusiness.func.mine.password.ModifyPasswordActivity;
+import com.jinlong.ebusiness.func.mine.setting.SettingActivity;
+import com.jinlong.ebusiness.func.mine.shipping.ShippingAddressListActivity;
 import com.xll.mvplib.utils.SharePreferenceUtil;
 import com.xll.mvplib.view.ItemClickListener;
 
@@ -40,7 +45,7 @@ public class MineFragment extends BaseFragment {
     RelativeLayout mRlLogin;
     @BindView(R.id.rl_collectibles)
     LinearLayout mRlCollectibles;
-    @BindView(R.id.rl_collection_shop)
+    @BindView(R.id.rl_collection_store)
     LinearLayout mRlCollectionShop;
     @BindView(R.id.rl_orders)
     LinearLayout mRlOrders;
@@ -76,7 +81,7 @@ public class MineFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.me_fragment, container, false);
+        View view = inflater.inflate(R.layout.mine_fragment, container, false);
         unbinder = ButterKnife.bind(this, view);
 
         String sta = (String) SharePreferenceUtil.getInstance().get(getActivity(), Constant.SHARE_PERFERENCE_FILE_NAME, SharePreferenceUtil.LANGUAGE, Constant.CHINESE);
@@ -92,7 +97,7 @@ public class MineFragment extends BaseFragment {
         unbinder.unbind();
     }
 
-    @OnClick({R.id.rl_not_login, R.id.rl_login, R.id.rl_collectibles, R.id.rl_collection_shop, R.id.rl_orders, R.id.rl_message, R.id.tv_modify_password, R.id.tv_shipping_address, R.id.tv_about_company, R.id.tv_FAQ, R.id.tv_feedback, R.id.tv_language, R.id.tv_new_guidelines})
+    @OnClick({R.id.rl_not_login, R.id.rl_login, R.id.rl_collectibles, R.id.rl_collection_store, R.id.rl_orders, R.id.rl_message, R.id.tv_modify_password, R.id.tv_shipping_address, R.id.tv_about_company, R.id.tv_FAQ, R.id.tv_feedback, R.id.tv_language, R.id.tv_new_guidelines})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_not_login:
@@ -100,24 +105,30 @@ public class MineFragment extends BaseFragment {
                 break;
             case R.id.rl_login:
                 //已登录
+                RouteTo(SettingActivity.class);
                 break;
             case R.id.rl_collectibles:
                 //收藏的商品
+                RouteTo(CollectionListActivity.class);
                 break;
-            case R.id.rl_collection_shop:
+            case R.id.rl_collection_store:
                 //收藏的店铺
+                RouteTo(CollectionListActivity.class);
                 break;
             case R.id.rl_orders:
                 //我的订单
                 break;
             case R.id.rl_message:
                 //消息列表
+                RouteTo(MessageListActivity.class);
                 break;
             case R.id.tv_modify_password:
                 //修改密码
+                RouteTo(ModifyPasswordActivity.class);
                 break;
             case R.id.tv_shipping_address:
                 //收货地址
+                RouteTo(ShippingAddressListActivity.class);
                 break;
             case R.id.tv_about_company:
                 //关于公司

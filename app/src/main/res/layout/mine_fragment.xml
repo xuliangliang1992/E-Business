@@ -28,6 +28,7 @@
             android:id="@+id/rl_not_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:paddingBottom="@dimen/y30"
             android:paddingTop="@dimen/y30"
             app:layout_constraintTop_toBottomOf="@id/tv_title">
@@ -54,7 +55,6 @@
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/y30"
             android:paddingTop="@dimen/y30"
-            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/rl_not_login">
 
             <ImageView
@@ -82,7 +82,6 @@
             android:id="@+id/cl_login"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rl_login">
@@ -91,8 +90,8 @@
 
             <LinearLayout
                 android:id="@+id/rl_collectibles"
-                style="@style/meLinearLayout"
-                app:layout_constraintEnd_toStartOf="@+id/rl_collection_shop"
+                style="@style/mine_linear_layout"
+                app:layout_constraintEnd_toStartOf="@+id/rl_collection_store"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toStartOf="parent">
 
@@ -102,13 +101,13 @@
                     android:src="@mipmap/ic_launcher"/>
 
                 <TextView
-                    style="@style/meLinearLayoutTextView"
+                    style="@style/mine_linear_layout_text_view"
                     android:text="@string/collectibles"/>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/rl_collection_shop"
-                style="@style/meLinearLayout"
+                android:id="@+id/rl_collection_store"
+                style="@style/mine_linear_layout"
                 app:layout_constraintEnd_toStartOf="@+id/rl_orders"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toEndOf="@+id/rl_collectibles">
@@ -119,16 +118,16 @@
                     android:src="@mipmap/ic_launcher"/>
 
                 <TextView
-                    style="@style/meLinearLayoutTextView"
-                    android:text="@string/collection_shop"/>
+                    style="@style/mine_linear_layout_text_view"
+                    android:text="@string/collection_store"/>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/rl_orders"
-                style="@style/meLinearLayout"
+                style="@style/mine_linear_layout"
                 app:layout_constraintEnd_toStartOf="@+id/rl_message"
                 app:layout_constraintHorizontal_weight="1"
-                app:layout_constraintStart_toEndOf="@+id/rl_collection_shop">
+                app:layout_constraintStart_toEndOf="@+id/rl_collection_store">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -136,13 +135,13 @@
                     android:src="@mipmap/ic_launcher"/>
 
                 <TextView
-                    style="@style/meLinearLayoutTextView"
+                    style="@style/mine_linear_layout_text_view"
                     android:text="@string/my_orders"/>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/rl_message"
-                style="@style/meLinearLayout"
+                style="@style/mine_linear_layout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toEndOf="@+id/rl_orders">
@@ -153,13 +152,13 @@
                     android:src="@mipmap/ic_launcher"/>
 
                 <TextView
-                    style="@style/meLinearLayoutTextView"
+                    style="@style/mine_linear_layout_text_view"
                     android:text="@string/message_list"/>
             </LinearLayout>
 
             <TextView
                 android:id="@+id/tv_modify_password"
-                style="@style/meTextView"
+                style="@style/mine_text_view"
                 android:text="@string/modify_password"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -171,7 +170,7 @@
 
             <TextView
                 android:id="@+id/tv_shipping_address"
-                style="@style/meTextView"
+                style="@style/mine_text_view"
                 android:text="@string/shipping_address"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -185,7 +184,7 @@
 
         <TextView
             android:id="@+id/tv_about_company"
-            style="@style/meTextView"
+            style="@style/mine_text_view"
             android:text="@string/about_company"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -197,7 +196,7 @@
 
         <TextView
             android:id="@+id/tv_FAQ"
-            style="@style/meTextView"
+            style="@style/mine_text_view"
             android:text="@string/FAQ"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -209,7 +208,7 @@
 
         <TextView
             android:id="@+id/tv_feedback"
-            style="@style/meTextView"
+            style="@style/mine_text_view"
             android:text="@string/feedback"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -220,7 +219,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_feedback"/>
 
         <TextView
-            style="@style/meTextView"
+            style="@style/mine_text_view"
             android:drawableEnd="@null"
             android:text="@string/language_switch"
             app:layout_constraintEnd_toEndOf="parent"
@@ -229,7 +228,7 @@
 
         <TextView
             android:id="@+id/tv_language"
-            style="@style/meTextView"
+            style="@style/mine_text_view"
             android:drawableEnd="@null"
             android:gravity="center_vertical|end"
             android:text="@string/language_chinese"
@@ -243,7 +242,7 @@
 
         <TextView
             android:id="@+id/tv_new_guidelines"
-            style="@style/meTextView"
+            style="@style/mine_text_view"
             android:text="@string/new_guidelines"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -11,7 +11,7 @@
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/y88"
-        android:background="@color/blue"
+        android:background="@color/white"
         android:fitsSystemWindows="true"
         app:elevation="0dp">
 
@@ -40,7 +40,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:textColor="@color/white"
+                android:textColor="@color/black_3"
                 android:textSize="@dimen/text_size_title"/>
 
             <TextView
@@ -50,7 +50,7 @@
                 android:layout_gravity="right"
                 android:gravity="center_vertical"
                 android:paddingRight="@dimen/padding_left_right"
-                android:textColor="@color/white"
+                android:textColor="@color/black_6"
                 android:textSize="@dimen/padding_left_right"
                 android:visibility="gone"/>
         </android.support.v7.widget.Toolbar>

@@ -1,15 +1,8 @@
 <resources>
     <string name="app_name">Saicfinace</string>
 
-    <string name="sure">确定</string>
-    <string name="cancel">取消</string>
-
-    <integer-array name="material_colors">
-        <item>@color/material_red</item>
-        <item>@color/material_green</item>
-        <item>@color/material_blue</item>
-        <item>@color/material_yellow</item>
-    </integer-array>
+    <string name="sure">Sure</string>
+    <string name="cancel">Cancel</string>
 
     <string name="lfrecyclerview_header_hint_normal">下拉刷新</string>
     <string name="lfrecyclerview_header_hint_ready">松开刷新数据</string>

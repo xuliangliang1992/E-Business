@@ -5,8 +5,8 @@
     <string name="mine">Mine</string>
     <string name="login_register">Please Login/Register</string>
     <string name="collectibles">Collectibles</string>
-    <string name="collection_shop">Collection Shop</string>
-    <string name="my_orders">MyOrder</string>
+    <string name="collection_store">Collection Store</string>
+    <string name="my_orders">My Order</string>
     <string name="message_list">Message List</string>
     <string name="modify_password">Modify Password</string>
     <string name="shipping_address">Shipping Address</string>
@@ -18,4 +18,17 @@
     <string name="home">Home</string>
     <string name="classify">Category</string>
     <string name="cart">Cart</string>
+    <string name="add_shipping_address">Add Shipping Address</string>
+    <string name="modify_shipping_address">Modify Shipping Address</string>
+    <string name="consignee">Consignee</string>
+    <string name="phone_no">Cell-phone</string>
+    <string name="region">Region</string>
+    <string name="detailed_address">Detailed Address</string>
+    <string name="set_as_default_address">Set as Default Address</string>
+    <string name="system_message">System Message</string>
+    <string name="notification">Notification</string>
+    <string name="manage">Manage</string>
+    <string name="my_favorite">My Favorite</string>
+    <string name="store">Store</string>
+    <string name="merchandise">Merchandise</string>
 </resources>

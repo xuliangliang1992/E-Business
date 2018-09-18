@@ -1,4 +1,4 @@
-package com.jinlong.ebusiness.func.mine.setting;
+package com.jinlong.ebusiness.func.mine.password;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,19 +11,18 @@ import org.greenrobot.eventbus.Subscribe;
 
 /**
  * @author xll
- * @date 2018/9/17
+ * @date 2018/9/18
  */
 
-public class SettingActivity extends BaseActivity {
-
+public class ModifyPasswordActivity extends BaseActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(R.string.mine);
+        setTitle(getString(R.string.modify_password));
 
-        SettingFragment fragment = (SettingFragment) getSupportFragmentManager().findFragmentById(R.id.fl_content);
+        ModifyPasswordFragment fragment = (ModifyPasswordFragment) getSupportFragmentManager().findFragmentById(R.id.fl_content);
         if (null == fragment) {
-            fragment = SettingFragment.newInstance();
+            fragment = ModifyPasswordFragment.newInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), fragment, R.id.fl_content);
         }
     }

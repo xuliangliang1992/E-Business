@@ -77,6 +77,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         mTvTitle.setText(title);
     }
 
+    @Override
+    public void setTitle(int resId) {
+        if (resId == 0) {
+            setTitle("");
+        } else {
+            setTitle(getResources().getString(resId));
+        }
+    }
+
     /**
      * 默认的title bar是展示的
      * 如有页面没有title 用该方法隐藏
@@ -84,6 +93,21 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     public void hideTitleBar() {
         mAppBar.setVisibility(View.GONE);
+    }
+
+    public void setRightText(int resId) {
+        setRightText(getResources().getString(resId));
+    }
+
+    protected void setRightText(String text) {
+        mTvRight.setVisibility(View.VISIBLE);
+        mTvRight.setText(text);
+    }
+
+    protected void setRightText(String text, View.OnClickListener onClickListener) {
+        mTvRight.setVisibility(View.VISIBLE);
+        mTvRight.setText(text);
+        mTvRight.setOnClickListener(onClickListener);
     }
 
     @OnClick(R.id.ll_back)
