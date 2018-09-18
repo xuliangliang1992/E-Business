@@ -43,7 +43,7 @@ public class GifProgressDialog extends BaseDialog {
     }
 
     @Override
-    public boolean setUiBeforShow() {
+    public boolean setUiBeforeShow() {
         return false;
     }
 }

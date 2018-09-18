@@ -144,7 +144,7 @@ public class EntryDialog extends BaseDialog {
     }
 
     @Override
-    public boolean setUiBeforShow() {
+    public boolean setUiBeforeShow() {
         if (StringUtil.isStringNull(title)) {
             tvTitle.setVisibility(View.GONE);
         }

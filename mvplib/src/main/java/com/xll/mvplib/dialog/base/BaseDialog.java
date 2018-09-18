@@ -111,7 +111,7 @@ public abstract class BaseDialog<T extends BaseDialog<T>> extends Dialog {
      *
      * @return true dialog show,fasle dialog not show
      */
-    public abstract boolean setUiBeforShow();
+    public abstract boolean setUiBeforeShow();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,7 +152,7 @@ public abstract class BaseDialog<T extends BaseDialog<T>> extends Dialog {
         super.onAttachedToWindow();
         Log.d(TAG, "onAttachedToWindow");
 
-        setUiBeforShow();
+        setUiBeforeShow();
 
         int width;
         if (widthScale == 0) {

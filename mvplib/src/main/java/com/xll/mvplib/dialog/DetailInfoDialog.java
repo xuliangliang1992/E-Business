@@ -97,7 +97,7 @@ public class DetailInfoDialog extends BaseDialog {
     }
 
     @Override
-    public boolean setUiBeforShow() {
+    public boolean setUiBeforeShow() {
         return true;
     }
 }

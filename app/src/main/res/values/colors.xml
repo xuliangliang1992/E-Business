@@ -9,4 +9,10 @@
     <color name="black_9">#999999</color>
     <color name="black_c">#cccccc</color>
     <color name="black_d">#dddddd</color>
+    <color name="divide_color">#e6e6e6</color>
+
+    <color name="dialog_red">#ff3900</color>
+    <color name="hint">#bfbfbf</color>
+    <color name="btn_un_click">#FDCBBD</color>
+    <color name="btn_click">#FF5B2C</color>
 </resources>

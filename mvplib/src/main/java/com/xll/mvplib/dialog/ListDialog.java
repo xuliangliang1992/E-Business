@@ -127,7 +127,7 @@ public class ListDialog extends BaseDialog {
     }
 
     @Override
-    public boolean setUiBeforShow() {
+    public boolean setUiBeforeShow() {
         tvTitle.setText(title);
         ivBack.setOnClickListener(new View.OnClickListener() {
             @Override

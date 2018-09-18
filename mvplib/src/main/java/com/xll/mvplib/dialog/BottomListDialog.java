@@ -50,7 +50,7 @@ public class BottomListDialog extends BottomBaseDialog {
     }
 
     @Override
-    public boolean setUiBeforShow() {
+    public boolean setUiBeforeShow() {
         return true;
     }
 

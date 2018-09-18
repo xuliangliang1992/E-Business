@@ -41,7 +41,7 @@ public class SignDialog extends BaseDialog {
     }
 
     @Override
-    public boolean setUiBeforShow() {
+    public boolean setUiBeforeShow() {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

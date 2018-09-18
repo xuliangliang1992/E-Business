@@ -65,7 +65,7 @@ public class MiddleListDialog extends BaseDialog {
     }
 
     @Override
-    public boolean setUiBeforShow() {
+    public boolean setUiBeforeShow() {
         tvTitle.setText(title);
         return false;
     }
