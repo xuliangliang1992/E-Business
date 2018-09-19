@@ -59,7 +59,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void changeAppLanguage() {
         //这是SharedPreferences工具类，用于保存设置，代码很简单，自己实现吧
-        String sta = (String) SharePreferenceUtil.getInstance().get(this, Constant.SHARE_PERFERENCE_FILE_NAME, SharePreferenceUtil.LANGUAGE, Constant.CHINESE);
+        String sta = (String) SharePreferenceUtil.getInstance().get(this, Constant.SHARED_PREFERENCE_FILE_NAME, SharePreferenceUtil.LANGUAGE, Constant.CHINESE);
         // 本地语言设置
         Locale myLocale = new Locale(sta);
         Resources res = getResources();

@@ -86,7 +86,7 @@ public class MineFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.mine_fragment, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        String sta = (String) SharePreferenceUtil.getInstance().get(getActivity(), Constant.SHARE_PERFERENCE_FILE_NAME, SharePreferenceUtil.LANGUAGE, Constant.CHINESE);
+        String sta = (String) SharePreferenceUtil.getInstance().get(getActivity(), Constant.SHARED_PREFERENCE_FILE_NAME, SharePreferenceUtil.LANGUAGE, Constant.CHINESE);
         if (Constant.ENGLISH.equals(sta)) {
             mTvLanguage.setText(R.string.language_english);
         }
@@ -149,10 +149,10 @@ public class MineFragment extends BaseFragment {
                     @Override
                     public void onItemClickListener(View view, int position) {
                         if (position == 0) {
-                            SharePreferenceUtil.getInstance().put(getActivity(), Constant.SHARE_PERFERENCE_FILE_NAME, SharePreferenceUtil.LANGUAGE, Constant.CHINESE);
+                            SharePreferenceUtil.getInstance().put(getActivity(), Constant.SHARED_PREFERENCE_FILE_NAME, SharePreferenceUtil.LANGUAGE, Constant.CHINESE);
                             EventBus.getDefault().post(Constant.EVENT_REFRESH_LANGUAGE);
                         } else if (position == 1) {
-                            SharePreferenceUtil.getInstance().put(getActivity(), Constant.SHARE_PERFERENCE_FILE_NAME, SharePreferenceUtil.LANGUAGE, Constant.ENGLISH);
+                            SharePreferenceUtil.getInstance().put(getActivity(), Constant.SHARED_PREFERENCE_FILE_NAME, SharePreferenceUtil.LANGUAGE, Constant.ENGLISH);
                             EventBus.getDefault().post(Constant.EVENT_REFRESH_LANGUAGE);
                         }
                     }
