@@ -1,4 +1,4 @@
-package com.jinlong.ebusiness.func.login.mail;
+package com.jinlong.ebusiness.func.login.success;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,12 +12,13 @@ import com.jinlong.ebusiness.base.BaseFragment;
 
 /**
  * @author xll
- * @date 2018/9/17
+ * @date 2018/9/19
  */
 
-public class BindingMailBoxFragment extends BaseFragment {
-    public static BindingMailBoxFragment newInstance() {
-        return new BindingMailBoxFragment();
+public class LoginSuccessFragment extends BaseFragment {
+
+    public static LoginSuccessFragment newInstance() {
+        return new LoginSuccessFragment();
     }
 
     @Override
@@ -28,8 +29,16 @@ public class BindingMailBoxFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.setting_fragment, container, false);
+        View view = inflater.inflate(R.layout.login_success_fragment, container, false);
+
 
         return view;
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+    }
+
 }

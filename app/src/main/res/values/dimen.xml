@@ -2,6 +2,7 @@
 <resources>
 
     <dimen name="text_size_title">@dimen/x36</dimen> <!--标题title字体大小-->
+    <dimen name="text_size_40">@dimen/x40</dimen> <!--标题title字体大小-->
     <dimen name="text_size_34">@dimen/x34</dimen><!-- 正常的页面显示文字大小-->
     <dimen name="text_size_32">@dimen/x32</dimen><!-- 正常的页面显示文字大小-->
     <dimen name="text_size_30">@dimen/x30</dimen>

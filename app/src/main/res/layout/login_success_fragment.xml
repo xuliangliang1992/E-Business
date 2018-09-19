@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:paddingTop="@dimen/y220">
+
+    <ImageView
+        android:id="@+id/iv_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/login_success"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_result"
+        style="@style/base_text"
+        android:layout_marginTop="@dimen/y140"
+        android:gravity="center"
+        android:text="Gmail账号登录成功"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_32"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_result"/>
+
+    <TextView
+        style="@style/base_text"
+        android:layout_marginEnd="@dimen/x100"
+        android:layout_marginStart="@dimen/x100"
+        android:gravity="center"
+        android:text="您的账号存在安全风险，建议您绑定邮箱提升安全级别"
+        android:textColor="@color/black_6"
+        android:textSize="@dimen/text_size_26"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result"/>
+
+    <Button
+        style="@style/button"
+        android:layout_marginBottom="@dimen/y115"
+        android:background="@drawable/shape_btn_click"
+        android:text="去绑定"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+</android.support.constraint.ConstraintLayout>

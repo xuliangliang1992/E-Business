@@ -3,12 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
+        >
 
         <TextView
             android:id="@+id/tv_title"
@@ -28,7 +31,6 @@
             android:id="@+id/rl_not_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             android:paddingBottom="@dimen/y30"
             android:paddingTop="@dimen/y30"
             app:layout_constraintTop_toBottomOf="@id/tv_title">
@@ -65,12 +67,14 @@
                 android:src="@mipmap/ic_launcher"/>
 
             <TextView
+                android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/iv_head_portrait"/>
 
             <ImageView
+                android:id="@+id/iv_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -78,109 +82,110 @@
                 android:src="@drawable/arrow"/>
         </RelativeLayout>
 
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/cl_login"
-            android:layout_width="0dp"
+        <android.support.constraint.Group
+            android:id="@+id/cg_login"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"
+            app:constraint_referenced_ids="rl_login,iv_head_portrait,iv_arrow,tv_name,rl_collectibles,rl_collection_store,rl_orders,rl_message,tv_modify_password,tv_shipping_address"/>
+
+        <View style="@style/viewLine"/>
+
+        <LinearLayout
+            android:id="@+id/rl_collectibles"
+            style="@style/mine_linear_layout"
+            app:layout_constraintEnd_toStartOf="@+id/rl_collection_store"
+            app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rl_login">
 
-            <View style="@style/viewLine"/>
-
-            <LinearLayout
-                android:id="@+id/rl_collectibles"
-                style="@style/mine_linear_layout"
-                app:layout_constraintEnd_toStartOf="@+id/rl_collection_store"
-                app:layout_constraintHorizontal_weight="1"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher"/>
-
-                <TextView
-                    style="@style/mine_linear_layout_text_view"
-                    android:text="@string/collectibles"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/rl_collection_store"
-                style="@style/mine_linear_layout"
-                app:layout_constraintEnd_toStartOf="@+id/rl_orders"
-                app:layout_constraintHorizontal_weight="1"
-                app:layout_constraintStart_toEndOf="@+id/rl_collectibles">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher"/>
-
-                <TextView
-                    style="@style/mine_linear_layout_text_view"
-                    android:text="@string/collection_store"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/rl_orders"
-                style="@style/mine_linear_layout"
-                app:layout_constraintEnd_toStartOf="@+id/rl_message"
-                app:layout_constraintHorizontal_weight="1"
-                app:layout_constraintStart_toEndOf="@+id/rl_collection_store">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher"/>
-
-                <TextView
-                    style="@style/mine_linear_layout_text_view"
-                    android:text="@string/my_orders"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/rl_message"
-                style="@style/mine_linear_layout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_weight="1"
-                app:layout_constraintStart_toEndOf="@+id/rl_orders">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher"/>
-
-                <TextView
-                    style="@style/mine_linear_layout_text_view"
-                    android:text="@string/message_list"/>
-            </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"/>
 
             <TextView
-                android:id="@+id/tv_modify_password"
-                style="@style/mine_text_view"
-                android:text="@string/modify_password"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rl_collectibles"/>
+                style="@style/mine_linear_layout_text_view"
+                android:text="@string/collectibles"/>
+        </LinearLayout>
 
-            <View
-                style="@style/viewLineMarginLeftRight"
-                app:layout_constraintTop_toBottomOf="@+id/tv_modify_password"/>
+        <LinearLayout
+            android:id="@+id/rl_collection_store"
+            style="@style/mine_linear_layout"
+            app:layout_constraintEnd_toStartOf="@+id/rl_orders"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/rl_collectibles"
+            app:layout_constraintTop_toBottomOf="@+id/rl_login">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"/>
 
             <TextView
-                android:id="@+id/tv_shipping_address"
-                style="@style/mine_text_view"
-                android:text="@string/shipping_address"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_modify_password"/>
+                style="@style/mine_linear_layout_text_view"
+                android:text="@string/collection_store"/>
+        </LinearLayout>
 
-            <View
-                style="@style/viewLineMarginLeftRight"
-                app:layout_constraintTop_toBottomOf="@+id/tv_shipping_address"/>
+        <LinearLayout
+            android:id="@+id/rl_orders"
+            style="@style/mine_linear_layout"
+            app:layout_constraintEnd_toStartOf="@+id/rl_message"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/rl_collection_store"
+            app:layout_constraintTop_toBottomOf="@+id/rl_login">
 
-        </android.support.constraint.ConstraintLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"/>
+
+            <TextView
+                style="@style/mine_linear_layout_text_view"
+                android:text="@string/my_orders"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rl_message"
+            style="@style/mine_linear_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/rl_orders"
+            app:layout_constraintTop_toBottomOf="@+id/rl_login">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"/>
+
+            <TextView
+                style="@style/mine_linear_layout_text_view"
+                android:text="@string/message_list"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_modify_password"
+            style="@style/mine_text_view"
+            android:text="@string/modify_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rl_collectibles"/>
+
+        <View
+            style="@style/viewLineMarginLeftRight"
+            app:layout_constraintTop_toBottomOf="@+id/tv_modify_password"/>
+
+        <TextView
+            android:id="@+id/tv_shipping_address"
+            style="@style/mine_text_view"
+            android:text="@string/shipping_address"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_modify_password"/>
+
+        <View
+            style="@style/viewLineMarginLeftRight"
+            app:layout_constraintTop_toBottomOf="@+id/tv_shipping_address"/>
 
         <TextView
             android:id="@+id/tv_about_company"
@@ -188,7 +193,7 @@
             android:text="@string/about_company"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cl_login"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_shipping_address"/>
 
         <View
             style="@style/viewLineMarginLeftRight"

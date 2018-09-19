@@ -3,7 +3,7 @@ package com.jinlong.ebusiness.func.mine;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
+import android.support.constraint.Group;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +16,7 @@ import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
 import com.jinlong.ebusiness.constant.Constant;
 import com.jinlong.ebusiness.dialog.DialogManager;
+import com.jinlong.ebusiness.func.login.LoginActivity;
 import com.jinlong.ebusiness.func.mine.collection.CollectionListActivity;
 import com.jinlong.ebusiness.func.mine.message.MessageListActivity;
 import com.jinlong.ebusiness.func.mine.password.ModifyPasswordActivity;
@@ -55,8 +56,6 @@ public class MineFragment extends BaseFragment {
     TextView mTvModifyPassword;
     @BindView(R.id.tv_shipping_address)
     TextView mTvShippingAddress;
-    @BindView(R.id.cl_login)
-    ConstraintLayout mClLogin;
     @BindView(R.id.tv_about_company)
     TextView mTvAboutCompany;
     @BindView(R.id.tv_FAQ)
@@ -68,6 +67,8 @@ public class MineFragment extends BaseFragment {
     @BindView(R.id.tv_new_guidelines)
     TextView mTvNewGuidelines;
     Unbinder unbinder;
+    @BindView(R.id.cg_login)
+    Group mCgLogin;
 
     public static MineFragment newInstance() {
         return new MineFragment();
@@ -102,6 +103,7 @@ public class MineFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.rl_not_login:
                 //未登录
+                RouteTo(LoginActivity.class);
                 break;
             case R.id.rl_login:
                 //已登录
@@ -135,9 +137,13 @@ public class MineFragment extends BaseFragment {
                 break;
             case R.id.tv_FAQ:
                 //常见问题
+                mCgLogin.setVisibility(View.GONE);
+                mRlNotLogin.setVisibility(View.VISIBLE);
                 break;
             case R.id.tv_feedback:
                 //意见反馈
+                mCgLogin.setVisibility(View.VISIBLE);
+                mRlNotLogin.setVisibility(View.GONE);
                 break;
             case R.id.tv_language:
                 //语言切换

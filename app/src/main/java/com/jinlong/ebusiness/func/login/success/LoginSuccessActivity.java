@@ -1,30 +1,28 @@
-package com.jinlong.ebusiness.func.login.mail;
+package com.jinlong.ebusiness.func.login.success;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseActivity;
-import com.jinlong.ebusiness.func.mine.setting.SettingFragment;
 import com.xll.mvplib.utils.ActivityUtils;
 
 import org.greenrobot.eventbus.Subscribe;
 
 /**
  * @author xll
- * @date 2018/9/17
+ * @date 2018/9/19
  */
 
-public class BindingMailBoxActivity extends BaseActivity {
-
+public class LoginSuccessActivity extends BaseActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(R.string.mine);
-
-        SettingFragment fragment = (SettingFragment) getSupportFragmentManager().findFragmentById(R.id.fl_content);
+        setTitle("登录成功");
+        setRightText("跳过");
+        LoginSuccessFragment fragment = (LoginSuccessFragment) getSupportFragmentManager().findFragmentById(R.id.fl_content);
         if (null == fragment) {
-            fragment = SettingFragment.newInstance();
+            fragment = LoginSuccessFragment.newInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), fragment, R.id.fl_content);
         }
     }
@@ -34,4 +32,5 @@ public class BindingMailBoxActivity extends BaseActivity {
     public void onEvent(String str) {
         super.onEvent(str);
     }
+
 }

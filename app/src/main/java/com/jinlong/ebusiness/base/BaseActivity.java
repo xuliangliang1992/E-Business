@@ -8,6 +8,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -39,7 +40,13 @@ public abstract class BaseActivity extends AppCompatActivity {
     TextView mTvRight;
     @BindView(R.id.app_bar)
     AppBarLayout mAppBar;
+    @BindView(R.id.iv_right)
+    ImageView mIvRight;
     Unbinder unbinder;
+    @BindView(R.id.iv_back)
+    ImageView mIvBack;
+    @BindView(R.id.ll_right)
+    LinearLayout mLlRight;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -95,6 +102,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         mAppBar.setVisibility(View.GONE);
     }
 
+    /**
+     * 隐藏返回键
+     */
+    protected void hideIvBack() {
+        mLlBack.setVisibility(View.GONE);
+    }
+
     public void setRightText(int resId) {
         setRightText(getResources().getString(resId));
     }
@@ -108,6 +122,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         mTvRight.setVisibility(View.VISIBLE);
         mTvRight.setText(text);
         mTvRight.setOnClickListener(onClickListener);
+    }
+
+    protected void setRightImageView(int resId) {
+        if (resId == 0) {
+            mLlRight.setVisibility(View.GONE);
+        } else {
+            mLlRight.setVisibility(View.VISIBLE);
+            mIvRight.setImageResource(resId);
+        }
     }
 
     @OnClick(R.id.ll_back)

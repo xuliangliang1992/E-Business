@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo"/>
+
+        <TextView
+            style="@style/base_text"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="0dp"
+            android:text="欢迎来到金龙电商"
+            android:textColor="@color/dialog_red"
+            android:textSize="@dimen/text_size_40"
+            />
+
+        <TextView
+            style="@style/base_text"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:text="全球好物聚集地"
+            android:paddingTop="@dimen/y7"
+            android:textColor="@color/black_3"
+            android:textSize="@dimen/text_size_28"
+            />
+
+        <EditText
+            android:id="@+id/et_email"
+            style="@style/modify_password_edit_text"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/y55"
+            android:hint="请输入邮箱"
+            android:inputType="textEmailAddress"
+            />
+
+        <View
+            style="@style/viewLineMarginLeftRight_80"
+            />
+
+        <EditText
+            android:id="@+id/et_password"
+            style="@style/modify_password_edit_text"
+            android:layout_width="match_parent"
+            android:hint="请设置密码"
+            />
+
+        <View
+            style="@style/viewLineMarginLeftRight_80"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/x80"
+            android:layout_marginStart="@dimen/x80"
+            android:layout_marginTop="@dimen/y30">
+
+            <CheckBox
+                android:id="@+id/cb_agree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/padding_left_right"
+                android:layout_toEndOf="@+id/cb_agree"
+                android:text="同意《服务条款》"
+                android:textColor="@color/login_text_gray"
+                android:textSize="@dimen/text_size_26"/>
+
+            <TextView
+                android:id="@+id/tv_forget_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="忘记密码"
+                android:textColor="@color/dialog_red"
+                android:textSize="@dimen/text_size_26"/>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/button"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/y60"
+            android:background="@drawable/shape_btn_un_click"
+            android:text="登录"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_password"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/x80"
+            android:layout_marginStart="@dimen/x80"
+            android:layout_marginTop="@dimen/y30"
+            android:gravity="center_vertical">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y2"
+                android:layout_weight="1"
+                android:background="@color/login_line_gray"/>
+
+            <TextView
+                style="@style/base_text"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="@dimen/x10"
+                android:paddingStart="@dimen/x10"
+                android:text="其他方式登录"
+                android:textColor="@color/login_text_gray"
+                android:textSize="@dimen/text_size_26"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_login"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y2"
+                android:layout_weight="1"
+                android:background="@color/login_line_gray"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y5">
+
+            <ImageView
+                android:id="@+id/iv_face_book"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/facebook"/>
+
+            <ImageView
+                android:id="@+id/iv_g_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/x80"
+                android:layout_toEndOf="@+id/iv_face_book"
+                android:src="@drawable/g_mail"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/y70"
+            android:layout_marginTop="@dimen/y70">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="您还没有账号？"
+                android:textColor="@color/login_bottom_text_gray"
+                android:textSize="@dimen/text_size_26"/>
+
+            <TextView
+                android:id="@+id/tv_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="马上注册"
+                android:textColor="@color/login_bottom_text_black"
+                android:textSize="@dimen/text_size_26"/>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
