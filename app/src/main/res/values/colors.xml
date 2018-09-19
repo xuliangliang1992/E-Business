@@ -15,6 +15,7 @@
     <color name="hint">#BFBFBF</color>
     <color name="btn_un_click">#FDCBBD</color>
     <color name="btn_click">#FF5B2C</color>
+    <color name="btn_to_buy">#E9E9E9</color>
     <color name="login_text_gray">#5B5B5B</color>
     <color name="login_line_gray">#E6E6E6</color>
     <color name="login_bottom_text_gray">#A7A7A7</color>

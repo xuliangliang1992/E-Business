@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
-import com.jinlong.ebusiness.func.cart.ShoppingCartFragment;
+import com.jinlong.ebusiness.func.cart.CartFragment;
 import com.jinlong.ebusiness.func.category.CategoryFragment;
 import com.jinlong.ebusiness.func.home.HomeFragment;
 import com.jinlong.ebusiness.func.mine.MineFragment;
@@ -78,7 +78,7 @@ public class MainFragment extends BaseFragment {
 
         fragments.add(HomeFragment.newInstance());
         fragments.add(CategoryFragment.newInstance());
-        fragments.add(ShoppingCartFragment.newInstance());
+        fragments.add(CartFragment.newInstance());
         fragments.add(MineFragment.newInstance());
 
     }

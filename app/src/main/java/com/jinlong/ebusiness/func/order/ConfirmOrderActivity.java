@@ -1,10 +1,11 @@
-package com.jinlong.ebusiness.func.login.mail;
+package com.jinlong.ebusiness.func.order;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseActivity;
+import com.jinlong.ebusiness.func.mine.collection.CollectionListFragment;
 import com.xll.mvplib.utils.ActivityUtils;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -14,17 +15,15 @@ import org.greenrobot.eventbus.Subscribe;
  * @date 2018/9/17
  */
 
-public class RegisterActivity extends BaseActivity {
-
+public class ConfirmOrderActivity extends BaseActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("注册");
-        setRightText("跳过");
+        setTitle("确认订单");
 
-        RegisterFragment fragment = (RegisterFragment) getSupportFragmentManager().findFragmentById(R.id.fl_content);
+        ConfirmOrderFragment fragment = (ConfirmOrderFragment) getSupportFragmentManager().findFragmentById(R.id.fl_content);
         if (null == fragment) {
-            fragment = RegisterFragment.newInstance();
+            fragment = ConfirmOrderFragment.newInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), fragment, R.id.fl_content);
         }
     }

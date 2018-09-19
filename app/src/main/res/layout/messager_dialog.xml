@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             xmlns:tools="http://schemas.android.com/tools"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="wrap_content"
-                                             android:background="@drawable/shape_bg_corners"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_bg_corners">
 
     <ImageView
         android:id="@+id/imageView"
-        app:layout_editor_absoluteY="@dimen/y60"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y60"
         android:src="@drawable/error"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_message"
@@ -23,18 +23,17 @@
         android:paddingBottom="@dimen/y60"
         android:paddingEnd="@dimen/padding_left_right"
         android:paddingStart="@dimen/padding_left_right"
-        android:textSize="@dimen/text_size_32"
         android:paddingTop="@dimen/y40"
         android:textColor="@color/black_3"
+        android:textSize="@dimen/text_size_32"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:text="确认删除此商品吗"
-        />
+        tools:text="确认删除此商品吗" />
 
     <View
         style="@style/viewLine"
-        app:layout_constraintTop_toBottomOf="@+id/tv_message"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_message" />
 
     <TextView
         android:id="@+id/tv_cancel"
@@ -46,8 +45,7 @@
         app:layout_constraintEnd_toStartOf="@+id/tv_sure"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_message"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/tv_message" />
 
     <View
         android:layout_width="@dimen/x1"
@@ -56,18 +54,17 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_cancel"
         app:layout_constraintEnd_toStartOf="@id/tv_sure"
         app:layout_constraintStart_toEndOf="@id/tv_cancel"
-        app:layout_constraintTop_toTopOf="@+id/tv_cancel"/>
+        app:layout_constraintTop_toTopOf="@+id/tv_cancel" />
 
     <TextView
         android:id="@+id/tv_sure"
         style="@style/base_text"
         android:gravity="center"
+        android:text="确认"
         android:textColor="@color/dialog_red"
         android:textSize="@dimen/text_size_32"
-        android:text="确认"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/tv_cancel"
-        app:layout_constraintTop_toBottomOf="@+id/tv_message"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/tv_message" />
 </android.support.constraint.ConstraintLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <android.support.constraint.Group
+        android:id="@+id/cg_add_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="imageView,tv_add_address" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y40"
+        android:src="@drawable/plus_usable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_add_address"
+        style="@style/base_text"
+        android:gravity="center"
+        android:paddingBottom="@dimen/y20"
+        android:paddingTop="@dimen/y15"
+        android:text="您还未添加收货地址，现在去添加"
+        android:textColor="@color/black_3"
+        android:textSize="@dimen/text_size_26"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+    <android.support.constraint.Group
+        android:id="@+id/cg_show_address"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tv_name,tv_cell,tv_show_address" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/y10"
+        android:paddingEnd="@dimen/padding_left_right"
+        android:paddingStart="@dimen/padding_left_right"
+        android:paddingTop="@dimen/padding_top_bottom"
+        android:text="王小明"
+        android:textColor="@color/black_3"
+        android:textSize="@dimen/text_size_26"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_cell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/x10"
+        android:paddingBottom="@dimen/y10"
+        android:paddingEnd="@dimen/padding_left_right"
+        android:paddingStart="@dimen/padding_left_right"
+        android:paddingTop="@dimen/padding_top_bottom"
+        android:text="13800138000"
+        android:textColor="@color/black_3"
+        android:textSize="@dimen/text_size_26"
+        app:layout_constraintStart_toEndOf="@id/tv_name" />
+
+    <TextView
+        android:id="@+id/tv_show_address"
+        style="@style/base_text"
+        android:paddingBottom="@dimen/y20"
+        android:paddingEnd="@dimen/padding_left_right"
+        android:paddingStart="@dimen/padding_left_right"
+        android:paddingTop="@dimen/y15"
+        android:text="上海市 浦东新区碧波路619号7号楼5楼"
+        android:textColor="@color/black_3"
+        android:textSize="@dimen/text_size_26"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+    <ImageView
+        android:id="@+id/iv_address_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y150"
+        android:src="@drawable/address_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_merchandise"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_address_line" />
+</android.support.constraint.ConstraintLayout>

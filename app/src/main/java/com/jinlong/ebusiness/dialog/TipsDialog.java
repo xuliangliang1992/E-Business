@@ -6,9 +6,8 @@ import android.view.View;
 import com.xll.mvplib.dialog.base.BaseDialog;
 
 /**
- * @function
- * @aucthor Administrator.
- * @date 2018/9/18 0018.
+ * @author xll
+ * @date 2018/9/17
  */
 
 public class TipsDialog extends BaseDialog {

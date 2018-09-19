@@ -1,4 +1,4 @@
-package com.jinlong.ebusiness.func.cart;
+package com.jinlong.ebusiness.func.order;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,16 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
 
 /**
  * @author xll
- * @date 2018/9/15
+ * @date 2018/9/17
  */
 
-public class ShoppingCartFragment extends BaseFragment {
-    public static ShoppingCartFragment newInstance() {
-        return new ShoppingCartFragment();
+public class ConfirmOrderFragment extends BaseFragment {
+    public static ConfirmOrderFragment newInstance() {
+        return new ConfirmOrderFragment();
     }
 
     @Override
@@ -27,6 +28,8 @@ public class ShoppingCartFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.order_confirm_fragment, container, false);
+
+        return view;
     }
 }

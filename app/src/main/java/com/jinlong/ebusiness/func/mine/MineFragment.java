@@ -22,6 +22,7 @@ import com.jinlong.ebusiness.func.mine.message.MessageListActivity;
 import com.jinlong.ebusiness.func.mine.password.ModifyPasswordActivity;
 import com.jinlong.ebusiness.func.mine.setting.SettingActivity;
 import com.jinlong.ebusiness.func.mine.shipping.ShippingAddressListActivity;
+import com.jinlong.ebusiness.func.order.ConfirmOrderActivity;
 import com.xll.mvplib.utils.SharePreferenceUtil;
 import com.xll.mvplib.view.ItemClickListener;
 
@@ -137,13 +138,10 @@ public class MineFragment extends BaseFragment {
                 break;
             case R.id.tv_FAQ:
                 //常见问题
-                mCgLogin.setVisibility(View.GONE);
-                mRlNotLogin.setVisibility(View.VISIBLE);
+                RouteTo(ConfirmOrderActivity.class);
                 break;
             case R.id.tv_feedback:
                 //意见反馈
-                mCgLogin.setVisibility(View.VISIBLE);
-                mRlNotLogin.setVisibility(View.GONE);
                 break;
             case R.id.tv_language:
                 //语言切换

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <stroke android:color="@color/btn_to_buy" />
+    <solid android:color="@android:color/transparent" />
+    <corners android:radius="2px" />
+    <padding
+        android:bottom="@dimen/y15"
+        android:left="@dimen/x55"
+        android:right="@dimen/x55"
+        android:top="@dimen/y15" />
+</shape>
