@@ -14,7 +14,7 @@
         android:textColor="@color/white"
         android:textSize="@dimen/x36" />
 
-    <com.saicfinance.it.view.SignView
+    <com.xll.mvplib.view.SignView
         android:id="@+id/sv_bank"
         android:layout_width="match_parent"
         android:layout_height="@dimen/y520" />

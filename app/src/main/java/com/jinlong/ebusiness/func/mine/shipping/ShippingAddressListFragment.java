@@ -53,6 +53,6 @@ public class ShippingAddressListFragment extends BaseFragment {
 
     @OnClick(R.id.btn_add_shipping_address)
     public void onViewClicked() {
-        RouteTo(EditAddressListActivity.class);
+        routeTo(EditAddressListActivity.class);
     }
 }

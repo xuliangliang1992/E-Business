@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseActivity;
+import com.jinlong.ebusiness.func.injection.Injection;
 import com.xll.mvplib.utils.ActivityUtils;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -29,6 +30,7 @@ public class LoginActivity extends BaseActivity {
             fragment = LoginFragment.newInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), fragment, R.id.fl_content);
         }
+        new LoginPresenter(Injection.provideLoanRepository(), fragment, Injection.provideSchedulerProvider());
     }
 
     @Override

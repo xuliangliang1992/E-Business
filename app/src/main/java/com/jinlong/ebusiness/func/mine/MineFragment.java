@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
+import com.jinlong.ebusiness.base.MainApplication;
 import com.jinlong.ebusiness.constant.Constant;
 import com.jinlong.ebusiness.dialog.DialogManager;
 import com.jinlong.ebusiness.func.login.LoginActivity;
@@ -24,6 +25,7 @@ import com.jinlong.ebusiness.func.mine.setting.SettingActivity;
 import com.jinlong.ebusiness.func.mine.shipping.ShippingAddressListActivity;
 import com.jinlong.ebusiness.func.order.ConfirmOrderActivity;
 import com.xll.mvplib.utils.SharePreferenceUtil;
+import com.xll.mvplib.utils.StringUtil;
 import com.xll.mvplib.view.ItemClickListener;
 
 import org.greenrobot.eventbus.EventBus;
@@ -71,6 +73,8 @@ public class MineFragment extends BaseFragment {
     @BindView(R.id.cg_login)
     Group mCgLogin;
 
+    private String token;
+
     public static MineFragment newInstance() {
         return new MineFragment();
     }
@@ -78,6 +82,7 @@ public class MineFragment extends BaseFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        token = (String) SharePreferenceUtil.getInstance().get(MainApplication.getInstance().getApplicationContext(), Constant.SHARED_PREFERENCE_FILE_NAME, SharePreferenceUtil.TOKEN, "");
     }
 
     @Nullable
@@ -86,10 +91,19 @@ public class MineFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.mine_fragment, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        String sta = (String) SharePreferenceUtil.getInstance().get(getActivity(), Constant.SHARED_PREFERENCE_FILE_NAME, SharePreferenceUtil.LANGUAGE, Constant.CHINESE);
-        if (Constant.ENGLISH.equals(sta)) {
+        if (!StringUtil.isStringNull(token)) {
+            mCgLogin.setVisibility(View.VISIBLE);
+            mRlNotLogin.setVisibility(View.GONE);
+        } else {
+            mRlNotLogin.setVisibility(View.VISIBLE);
+            mCgLogin.setVisibility(View.GONE);
+        }
+
+        String language = (String) SharePreferenceUtil.getInstance().get(getActivity(), Constant.SHARED_PREFERENCE_FILE_NAME, SharePreferenceUtil.LANGUAGE, Constant.CHINESE);
+        if (Constant.ENGLISH.equals(language)) {
             mTvLanguage.setText(R.string.language_english);
         }
+        
         return view;
     }
 
@@ -104,41 +118,41 @@ public class MineFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.rl_not_login:
                 //未登录
-                RouteTo(LoginActivity.class);
+                routeTo(LoginActivity.class);
                 break;
             case R.id.rl_login:
                 //已登录
-                RouteTo(SettingActivity.class);
+                routeTo(SettingActivity.class);
                 break;
             case R.id.rl_collectibles:
                 //收藏的商品
-                RouteTo(CollectionListActivity.class);
+                routeTo(CollectionListActivity.class);
                 break;
             case R.id.rl_collection_store:
                 //收藏的店铺
-                RouteTo(CollectionListActivity.class);
+                routeTo(CollectionListActivity.class);
                 break;
             case R.id.rl_orders:
                 //我的订单
                 break;
             case R.id.rl_message:
                 //消息列表
-                RouteTo(MessageListActivity.class);
+                routeTo(MessageListActivity.class);
                 break;
             case R.id.tv_modify_password:
                 //修改密码
-                RouteTo(ModifyPasswordActivity.class);
+                routeTo(ModifyPasswordActivity.class);
                 break;
             case R.id.tv_shipping_address:
                 //收货地址
-                RouteTo(ShippingAddressListActivity.class);
+                routeTo(ShippingAddressListActivity.class);
                 break;
             case R.id.tv_about_company:
                 //关于公司
                 break;
             case R.id.tv_FAQ:
                 //常见问题
-                RouteTo(ConfirmOrderActivity.class);
+                routeTo(ConfirmOrderActivity.class);
                 break;
             case R.id.tv_feedback:
                 //意见反馈

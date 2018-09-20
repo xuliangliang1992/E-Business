@@ -1,10 +1,12 @@
-package com.jinlong.ebusiness.func.login.mail;
+package com.jinlong.ebusiness.func.login.register;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseActivity;
+import com.jinlong.ebusiness.func.injection.Injection;
+import com.jinlong.ebusiness.func.login.LoginPresenter;
 import com.xll.mvplib.utils.ActivityUtils;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -27,6 +29,8 @@ public class RegisterActivity extends BaseActivity {
             fragment = RegisterFragment.newInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), fragment, R.id.fl_content);
         }
+        new RegisterPresenter(Injection.provideLoanRepository(), fragment, Injection.provideSchedulerProvider());
+
     }
 
     @Override

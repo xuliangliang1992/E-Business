@@ -57,6 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_password_again" />
 
     <Button
+        android:id="@+id/btn_register"
         style="@style/button"
         android:layout_marginTop="@dimen/y60"
         android:background="@drawable/shape_btn_un_click"

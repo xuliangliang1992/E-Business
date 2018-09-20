@@ -4,8 +4,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * 校验
  *
- * Created by wujinpeng on 2016/8/15.
+ * @author xll
+ * @date 2018/1/1
  */
 public class CheckRegUtil {
 

@@ -53,4 +53,18 @@ public class DialogManager {
         mDialog = new BottomListDialog(context, titles, itemClickListener);
         mDialog.show();
     }
+
+    public void showProgressHUD(Context context) {
+        hud = ProgressHUD.create(context)
+                .setStyle(ProgressHUD.Style.SPIN_INDETERMINATE)
+                .setLabel("正在通讯中,请稍候...");
+        hud.show();
+    }
+
+    public void dismissProgressHUD(){
+        if (null != hud) {
+            hud.dismiss();
+            hud = null;
+        }
+    }
 }

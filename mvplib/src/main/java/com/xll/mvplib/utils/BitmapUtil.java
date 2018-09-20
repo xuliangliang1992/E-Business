@@ -25,8 +25,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * Description: bitmap 处理工具类
- * Created by freddy on 16/7/27.
+ * bitmap 处理工具类
+ *
+ * @author xll
+ * @date 2018/1/1
  */
 public class BitmapUtil {
     /**

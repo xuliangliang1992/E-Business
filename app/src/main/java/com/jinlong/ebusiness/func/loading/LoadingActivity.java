@@ -14,7 +14,7 @@ import org.greenrobot.eventbus.Subscribe;
  * @date 2018/9/15
  */
 
-public class LoadingActivity extends BaseActivity{
+public class LoadingActivity extends BaseActivity {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,7 +26,6 @@ public class LoadingActivity extends BaseActivity{
             loadingFragment = LoadingFragment.newInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), loadingFragment, R.id.fl_content);
         }
-
     }
 
     @Override

@@ -12,11 +12,14 @@ public class Constant {
     public static final boolean IS_DEBUG = true;
 
     public static final String EVENT_REFRESH_LANGUAGE = "event_refresh_language";
-    public static final String SHARED_PREFERENCE_FILE_NAME = "jinlong";
+    public static final String SHARED_PREFERENCE_FILE_NAME = "jin_long";
     public static final String CHINESE = "zh";
     public static final String ENGLISH = "en";
 
-    public static final String BASE_URL = "http://jlapi.test.highlands.ltd";
+    public static final String BASE_URL = "http://jlapi.test.highlands.ltd/";
 
+    public static final int REQUEST_LOGIN = 1000;
+
+    public static final int UNAUTHORIZED = 402;
 
 }

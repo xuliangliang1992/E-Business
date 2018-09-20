@@ -47,6 +47,7 @@
                 android:layout_width="@dimen/x100"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
+                android:visibility="gone"
                 android:layout_marginEnd="@dimen/padding_left_right"
                 android:gravity="center_vertical|end"
                 >
@@ -63,7 +64,7 @@
                 android:id="@+id/tv_right"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="right"
+                android:layout_gravity="end"
                 android:gravity="center_vertical"
                 android:paddingRight="@dimen/padding_left_right"
                 android:textColor="@color/black_6"

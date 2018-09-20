@@ -5,7 +5,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <com.saicfinance.it.view.GifView
+    <com.xll.mvplib.view.GifView
         android:id="@+id/gif_view"
         android:layout_width="@dimen/x150"
         android:layout_height="@dimen/x150"

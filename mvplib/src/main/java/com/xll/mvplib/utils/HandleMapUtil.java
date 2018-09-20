@@ -7,7 +7,7 @@ import java.util.Map;
  * Copyright © SAIC FINANCE All Rights Reserved
  */
 
-public class HandleMapUtil{
+public class HandleMapUtil {
 
     public static int getInt(Map map, String key) {
         return getInt(map, key, -1);
@@ -15,19 +15,19 @@ public class HandleMapUtil{
 
     public static int getInt(Map map, String key, int dft) {
         Object v = map.get(key);
-        if ( v instanceof Integer){
-            return (int)v;
-        }else if (v instanceof Float){
-            return ((int)(float) v);
-        }else if (v instanceof Long){
-            return ((int)(long) v);
-        }else if (v instanceof Double){
-            return ((int)(double)v);
-        }else if(v instanceof String){
+        if (v instanceof Integer) {
+            return (int) v;
+        } else if (v instanceof Float) {
+            return ((int) (float) v);
+        } else if (v instanceof Long) {
+            return ((int) (long) v);
+        } else if (v instanceof Double) {
+            return ((int) (double) v);
+        } else if (v instanceof String) {
             String value = (String) v;
             try {
                 return Integer.parseInt(value);
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 return dft;
             }
         }
@@ -35,24 +35,24 @@ public class HandleMapUtil{
     }
 
     public static float getFloat(Map map, String key) {
-        return getFloat(map,key, 0.0f);
+        return getFloat(map, key, 0.0f);
     }
 
     public static float getFloat(Map map, String key, float dft) {
         Object v = map.get(key);
-        if ( v instanceof Integer){
-            return (float)(int)v;
-        }else if (v instanceof Float){
+        if (v instanceof Integer) {
+            return (float) (int) v;
+        } else if (v instanceof Float) {
             return (float) v;
-        }else if (v instanceof Long){
+        } else if (v instanceof Long) {
             return ((float) (long) v);
-        }else if (v instanceof Double){
-            return ((float) (double)v);
-        }else if(v instanceof String){
+        } else if (v instanceof Double) {
+            return ((float) (double) v);
+        } else if (v instanceof String) {
             String value = (String) v;
             try {
                 return Float.parseFloat(value);
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 return dft;
             }
         }
@@ -65,19 +65,19 @@ public class HandleMapUtil{
 
     public static double getDouble(Map map, String key, double dft) {
         Object v = map.get(key);
-        if ( v instanceof Integer){
-            return (double)(int)v;
-        }else if (v instanceof Float){
-            return (double) (float)v;
-        }else if (v instanceof Long){
+        if (v instanceof Integer) {
+            return (double) (int) v;
+        } else if (v instanceof Float) {
+            return (double) (float) v;
+        } else if (v instanceof Long) {
             return ((double) (long) v);
-        }else if (v instanceof Double){
-            return (double)v;
-        }else if(v instanceof String){
+        } else if (v instanceof Double) {
+            return (double) v;
+        } else if (v instanceof String) {
             String value = (String) v;
             try {
                 return Double.parseDouble(value);
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 return dft;
             }
         }
@@ -89,8 +89,11 @@ public class HandleMapUtil{
     }
 
     public static String getString(Map map, String key, String dft) {
+        if (map == null) {
+            return dft;
+        }
         Object v = map.get(key);
-        if(v == null) {
+        if (v == null) {
             return dft;
         } else {
             return String.valueOf(v);

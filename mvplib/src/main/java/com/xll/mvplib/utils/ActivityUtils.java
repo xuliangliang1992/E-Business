@@ -10,8 +10,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 /**
- * Description:
- * Created by freddy on 16/6/2.
+ * @author xll
+ * @date 2018/1/1
  */
 public class ActivityUtils {
 

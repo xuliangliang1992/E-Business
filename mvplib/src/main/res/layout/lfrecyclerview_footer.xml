@@ -30,7 +30,7 @@
             android:orientation="horizontal"
             android:visibility="invisible">
 
-            <com.saicfinance.carkeeper.view.recyclerview.LoadView
+            <com.xll.mvplib.view.recyclerview.LoadView
                 android:id="@+id/lfrecyclerview_footer_loadview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

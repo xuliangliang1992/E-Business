@@ -10,7 +10,9 @@ import java.util.Locale;
 
 /**
  * 时间操作工具类
- * Created by wujinpeng on 2016/8/23.
+ *
+ * @author xll
+ * @date 2018/1/1
  */
 public class DateUtil {
     private static final String TAG = DateUtil.class.getSimpleName();

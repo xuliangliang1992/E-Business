@@ -29,6 +29,12 @@ public class LoadingFragment extends BaseFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.loading_fragment, container, false);
         if (Constant.IS_DEBUG) {
             SparseArray<String> address = new SparseArray<>();
             address.put(0, "测试环境");
@@ -38,7 +44,7 @@ public class LoadingFragment extends BaseFragment {
                 public void onItemClickListener(View view, int position) {
                     switch (position) {
                         case 0:
-                            RouteTo(MainActivity.class);
+                            routeTo(MainActivity.class);
                             break;
                         case 1:
 
@@ -55,13 +61,7 @@ public class LoadingFragment extends BaseFragment {
             //检测版本更新
 
         }
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.loading_fragment, container, false);
-
         return view;
     }
+
 }

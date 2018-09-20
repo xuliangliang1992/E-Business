@@ -26,8 +26,8 @@ import java.util.Enumeration;
 import java.util.UUID;
 
 /**
- *
- * Created by wujinpeng on 2016/9/12.
+ * @author xll
+ * @date 2018/1/1
  */
 public class DeviceUtil {
 
@@ -66,10 +66,11 @@ public class DeviceUtil {
 
     /**
      * 判断是否有网络连接
+     *
      * @param context 上下文
      * @return true 有网 false 没有网
      */
-    public static boolean isNetworkAvaiable(Context context){
+    public static boolean isNetworkAvaiable(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         return connectivityManager.getActiveNetworkInfo().isAvailable();
     }
@@ -172,13 +173,14 @@ public class DeviceUtil {
 
     private static final String PREFS_FILE = "device_id.xml";
     private static final String PREFS_DEVICE_ID = "device_id";
-    public static String getDeviceId(Context context){
+
+    public static String getDeviceId(Context context) {
         String strUuid;
         final SharedPreferences prefs = context.getSharedPreferences(PREFS_FILE, 0);
-        final String id = prefs.getString(PREFS_DEVICE_ID, null );
+        final String id = prefs.getString(PREFS_DEVICE_ID, null);
         if (id != null) {
             // Use the ids previously computed and stored in the prefs file
-//                        uuid = UUID.fromString(id);
+            //                        uuid = UUID.fromString(id);
             return id;
         } else {
             final String androidId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
@@ -191,9 +193,9 @@ public class DeviceUtil {
                     strUuid = uuid.toString();
                 } else {
                     final String deviceId = ((TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId();
-//                  uuid = deviceId!=null ? UUID.nameUUIDFromBytes(deviceId.getBytes("utf8")) : UUID.randomUUID();
+                    //                  uuid = deviceId!=null ? UUID.nameUUIDFromBytes(deviceId.getBytes("utf8")) : UUID.randomUUID();
                     if (deviceId != null) {
-//                      uuid = UUID.nameUUIDFromBytes(deviceId.getBytes("utf8"));
+                        //                      uuid = UUID.nameUUIDFromBytes(deviceId.getBytes("utf8"));
                         strUuid = deviceId;
                     } else {
                         strUuid = Installation.id(context);

@@ -7,8 +7,8 @@ import android.graphics.drawable.BitmapDrawable;
 import java.lang.ref.WeakReference;
 
 /**
- *
- * Created by wujinpeng on 2016/11/3.
+ * @author xll
+ * @date 2018/1/1
  */
 public class AsyncDrawable extends BitmapDrawable {
 
