@@ -20,4 +20,6 @@
     <color name="login_line_gray">#E6E6E6</color>
     <color name="login_bottom_text_gray">#A7A7A7</color>
     <color name="login_bottom_text_black">#151515</color>
+
+    <color name="main_tab_color">#FE5F32</color>
 </resources>

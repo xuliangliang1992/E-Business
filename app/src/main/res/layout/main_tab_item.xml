@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/y4"
-        android:textColor="@drawable/selector_txtcolor_tab"
+        android:textColor="@drawable/selector_main_tab_text_color"
         android:textSize="@dimen/text_size_tab"
         tool:text="消息"/>
 </LinearLayout>

@@ -53,8 +53,8 @@ public class MineFragment extends BaseFragment {
     LinearLayout mRlCollectionShop;
     @BindView(R.id.rl_orders)
     LinearLayout mRlOrders;
-    @BindView(R.id.rl_message)
-    LinearLayout mRlMessage;
+    @BindView(R.id.tv_message)
+    TextView mTvMessage;
     @BindView(R.id.tv_modify_password)
     TextView mTvModifyPassword;
     @BindView(R.id.tv_shipping_address)
@@ -113,7 +113,7 @@ public class MineFragment extends BaseFragment {
         unbinder.unbind();
     }
 
-    @OnClick({R.id.rl_not_login, R.id.rl_login, R.id.rl_collectibles, R.id.rl_collection_store, R.id.rl_orders, R.id.rl_message, R.id.tv_modify_password, R.id.tv_shipping_address, R.id.tv_about_company, R.id.tv_FAQ, R.id.tv_feedback, R.id.tv_language, R.id.tv_new_guidelines})
+    @OnClick({R.id.rl_not_login, R.id.rl_login, R.id.rl_collectibles, R.id.rl_collection_store, R.id.rl_orders, R.id.tv_message, R.id.tv_modify_password, R.id.tv_shipping_address, R.id.tv_about_company, R.id.tv_FAQ, R.id.tv_feedback, R.id.tv_language, R.id.tv_new_guidelines})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_not_login:
@@ -135,7 +135,7 @@ public class MineFragment extends BaseFragment {
             case R.id.rl_orders:
                 //我的订单
                 break;
-            case R.id.rl_message:
+            case R.id.tv_message:
                 //消息列表
                 routeTo(MessageListActivity.class);
                 break;

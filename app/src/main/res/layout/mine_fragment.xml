@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/tv_title"
@@ -21,16 +18,17 @@
             android:padding="@dimen/y20"
             android:text="@string/mine"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <View
             style="@style/viewLine"
-            app:layout_constraintTop_toBottomOf="@id/tv_title"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
         <RelativeLayout
             android:id="@+id/rl_not_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/orange"
             android:paddingBottom="@dimen/y30"
             android:paddingTop="@dimen/y30"
             app:layout_constraintTop_toBottomOf="@id/tv_title">
@@ -40,14 +38,16 @@
                 android:layout_width="@dimen/x150"
                 android:layout_height="@dimen/y150"
                 android:layout_marginStart="@dimen/x50"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/iv_head"
-                android:text="@string/login_register"/>
+                android:text="@string/login_register"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_42" />
 
         </RelativeLayout>
 
@@ -55,6 +55,7 @@
             android:id="@+id/rl_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/orange"
             android:paddingBottom="@dimen/y30"
             android:paddingTop="@dimen/y30"
             app:layout_constraintTop_toBottomOf="@id/rl_not_login">
@@ -64,14 +65,16 @@
                 android:layout_width="@dimen/x150"
                 android:layout_height="@dimen/y150"
                 android:layout_marginStart="@dimen/x50"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/iv_head_portrait"/>
+                android:layout_toRightOf="@+id/iv_head_portrait"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_42" />
 
             <ImageView
                 android:id="@+id/iv_arrow"
@@ -79,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:src="@drawable/arrow"/>
+                android:src="@drawable/arrow" />
         </RelativeLayout>
 
         <android.support.constraint.Group
@@ -87,81 +90,69 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            app:constraint_referenced_ids="rl_login,iv_head_portrait,iv_arrow,tv_name,rl_collectibles,rl_collection_store,rl_orders,rl_message,tv_modify_password,tv_shipping_address"/>
+            app:constraint_referenced_ids="rl_login,iv_head_portrait,iv_arrow,tv_name,rl_collectibles,rl_collection_store,rl_orders,tv_modify_password,tv_shipping_address,tv_message" />
 
-        <View style="@style/viewLine"/>
+        <View style="@style/viewLine" />
 
-        <LinearLayout
-            android:id="@+id/rl_collectibles"
-            style="@style/mine_linear_layout"
-            app:layout_constraintEnd_toStartOf="@+id/rl_collection_store"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rl_login">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
-
-            <TextView
-                style="@style/mine_linear_layout_text_view"
-                android:text="@string/collectibles"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/rl_collection_store"
-            style="@style/mine_linear_layout"
-            app:layout_constraintEnd_toStartOf="@+id/rl_orders"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toEndOf="@+id/rl_collectibles"
-            app:layout_constraintTop_toBottomOf="@+id/rl_login">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
-
-            <TextView
-                style="@style/mine_linear_layout_text_view"
-                android:text="@string/collection_store"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/rl_orders"
-            style="@style/mine_linear_layout"
-            app:layout_constraintEnd_toStartOf="@+id/rl_message"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toEndOf="@+id/rl_collection_store"
-            app:layout_constraintTop_toBottomOf="@+id/rl_login">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
-
-            <TextView
-                style="@style/mine_linear_layout_text_view"
-                android:text="@string/my_orders"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/rl_message"
-            style="@style/mine_linear_layout"
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_left_right"
+            android:layout_marginStart="@dimen/padding_left_right"
+            android:layout_marginTop="@dimen/y250"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toEndOf="@+id/rl_orders"
-            app:layout_constraintTop_toBottomOf="@+id/rl_login">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                style="@style/mine_linear_layout_text_view"
-                android:text="@string/message_list"/>
-        </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/rl_collectibles"
+                    style="@style/mine_linear_layout">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        style="@style/mine_linear_layout_text_view"
+                        android:text="@string/collectibles" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rl_collection_store"
+                    style="@style/mine_linear_layout">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        style="@style/mine_linear_layout_text_view"
+                        android:text="@string/collection_store" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rl_orders"
+                    style="@style/mine_linear_layout">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        style="@style/mine_linear_layout_text_view"
+                        android:text="@string/my_orders" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
 
         <TextView
             android:id="@+id/tv_modify_password"
@@ -169,11 +160,11 @@
             android:text="@string/modify_password"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rl_collectibles"/>
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
         <View
             style="@style/viewLineMarginLeftRight"
-            app:layout_constraintTop_toBottomOf="@+id/tv_modify_password"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_modify_password" />
 
         <TextView
             android:id="@+id/tv_shipping_address"
@@ -181,11 +172,23 @@
             android:text="@string/shipping_address"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_modify_password"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_modify_password" />
 
         <View
             style="@style/viewLineMarginLeftRight"
-            app:layout_constraintTop_toBottomOf="@+id/tv_shipping_address"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_shipping_address" />
+
+        <TextView
+            android:id="@+id/tv_message"
+            style="@style/mine_text_view"
+            android:text="我的消息"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_shipping_address" />
+
+        <View
+            style="@style/viewLineMarginLeftRight"
+            app:layout_constraintTop_toBottomOf="@+id/tv_message" />
 
         <TextView
             android:id="@+id/tv_about_company"
@@ -193,11 +196,11 @@
             android:text="@string/about_company"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_shipping_address"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_message" />
 
         <View
             style="@style/viewLineMarginLeftRight"
-            app:layout_constraintTop_toBottomOf="@+id/tv_about_company"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_about_company" />
 
         <TextView
             android:id="@+id/tv_FAQ"
@@ -205,11 +208,11 @@
             android:text="@string/FAQ"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_about_company"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_about_company" />
 
         <View
             style="@style/viewLineMarginLeftRight"
-            app:layout_constraintTop_toBottomOf="@+id/tv_FAQ"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_FAQ" />
 
         <TextView
             android:id="@+id/tv_feedback"
@@ -217,11 +220,11 @@
             android:text="@string/feedback"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_FAQ"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_FAQ" />
 
         <View
             style="@style/viewLineMarginLeftRight"
-            app:layout_constraintTop_toBottomOf="@+id/tv_feedback"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_feedback" />
 
         <TextView
             style="@style/mine_text_view"
@@ -229,7 +232,7 @@
             android:text="@string/language_switch"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_feedback"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_feedback" />
 
         <TextView
             android:id="@+id/tv_language"
@@ -239,11 +242,11 @@
             android:text="@string/language_chinese"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_feedback"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_feedback" />
 
         <View
             style="@style/viewLineMarginLeftRight"
-            app:layout_constraintTop_toBottomOf="@+id/tv_language"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_language" />
 
         <TextView
             android:id="@+id/tv_new_guidelines"
@@ -251,6 +254,6 @@
             android:text="@string/new_guidelines"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_language"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_language" />
     </android.support.constraint.ConstraintLayout>
 </android.support.v4.widget.NestedScrollView>

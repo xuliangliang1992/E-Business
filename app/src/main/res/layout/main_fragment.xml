@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"
@@ -11,11 +11,11 @@
         app:layout_constraintBottom_toTopOf="@+id/tab_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         style="@style/viewLine"
-        app:layout_constraintBottom_toTopOf="@+id/tab_layout"/>
+        app:layout_constraintBottom_toTopOf="@+id/tab_layout" />
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout"
@@ -27,8 +27,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:tabGravity="fill"
         app:tabIndicatorHeight="0dp"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="@android:color/holo_red_light"
-        app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
-        app:tabTextColor="@color/black"/>
+        app:tabMode="fixed" />
 </android.support.constraint.ConstraintLayout>

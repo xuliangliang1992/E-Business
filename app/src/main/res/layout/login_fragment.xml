@@ -42,7 +42,7 @@
             style="@style/modify_password_edit_text"
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/y55"
-            android:hint="请输入邮箱"
+            android:hint="@string/empty_email"
             android:inputType="textEmailAddress"
             />
 
@@ -54,7 +54,7 @@
             android:id="@+id/et_password"
             style="@style/modify_password_edit_text"
             android:layout_width="match_parent"
-            android:hint="请设置密码"
+            android:hint="@string/empty_pwd"
             />
 
         <View

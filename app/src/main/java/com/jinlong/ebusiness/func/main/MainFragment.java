@@ -7,7 +7,9 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.content.res.AppCompatResources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,17 +65,18 @@ public class MainFragment extends BaseFragment {
         mViewPager.setAdapter(mAdapter);
         mViewPager.setOffscreenPageLimit(3);
         mTabLayout.setupWithViewPager(mViewPager, true);
-
         for (int i = 0; i < fragments.size(); i++) {
             mTabLayout.getTabAt(i).setCustomView(getTabView(i));
         }
+        mTabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(getActivity(), R.color.main_tab_color));
 
         return view;
     }
 
     private void initResource() {
         fragments = new ArrayList<>();
-        //        imgRes = new int[]{R.drawable.main_tab_menu01_selector, R.drawable.main_tab_menu02_selector, R.drawable.main_tab_menu04_selector};
+        imgRes = new int[]{R.drawable.selector_main_tab_home, R.drawable.selector_main_tab_category,
+                R.drawable.selector_main_tab_cart, R.drawable.selector_main_tab_mine};
         titles = new String[]{getString(R.string.home), getString(R.string.classify), getString(R.string.cart), getString(R.string.mine)};
 
         fragments.add(HomeFragment.newInstance());
@@ -89,7 +92,7 @@ public class MainFragment extends BaseFragment {
         TextView textView = (TextView) view.findViewById(R.id.txt_title);
 //        TextView tvRead = (TextView) view.findViewById(R.id.tv_read);
 //        tvRead.setVisibility(View.GONE);
-//        imageView.setImageResource(imgRes[position]);
+        imageView.setImageResource(imgRes[position]);
         textView.setText(titles[position]);
         return view;
     }

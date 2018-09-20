@@ -31,4 +31,6 @@
     <string name="my_favorite">我的收藏</string>
     <string name="store">店铺</string>
     <string name="merchandise">商品</string>
+    <string name="empty_pwd">请输入密码</string>
+    <string name="empty_email">请输入邮箱</string>
 </resources>
