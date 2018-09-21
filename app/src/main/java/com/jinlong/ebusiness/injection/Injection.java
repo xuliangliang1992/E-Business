@@ -1,4 +1,4 @@
-package com.jinlong.ebusiness.func.injection;
+package com.jinlong.ebusiness.injection;
 
 
 import com.jinlong.ebusiness.http.request.LoanRepository;

@@ -15,6 +15,10 @@ import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 import android.widget.LinearLayout;
 
+/**
+ * @author xll
+ * @date 2018/1/1
+ */
 public abstract class BaseDialog<T extends BaseDialog<T>> extends Dialog {
     /**
      * TAG(日志)

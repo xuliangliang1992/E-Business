@@ -42,7 +42,7 @@ public class RemoteLoanDataSource implements LoanDataSource {
         HashMap<String, Object> params = new HashMap<>(2);
         params.put("email", email);
         params.put("pwd", pwd);
-        return new AppRetrofit().getFaceIDService().login(HttpUrl.LOGIN_URL, params)
+        return new AppRetrofit(false).getFaceIDService().login(HttpUrl.LOGIN_URL, params)
                 .filter(new HttpFilterFunc());
     }
 
@@ -85,9 +85,8 @@ public class RemoteLoanDataSource implements LoanDataSource {
 
     @Override
     public Observable<Map<String, Object>> forgetPwd(String email) {
-        HashMap<String, Object> params = new HashMap<>(1);
-        params.put("email", email);
-        return new AppRetrofit().getFaceIDService().forgetPwd(HttpUrl.FORGET_PWD_URL, params);
+        return new AppRetrofit(false).getFaceIDService().forgetPwd(HttpUrl.FORGET_PWD_URL, email)
+                .filter(new HttpFilterFunc());
     }
 
     @Override

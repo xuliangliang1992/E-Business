@@ -18,8 +18,8 @@ public class LoginSuccessActivity extends BaseActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("登录成功");
-        setRightText("跳过");
+        setTitle(getString(R.string.login_success));
+        setRightText(getString(R.string.jump));
         LoginSuccessFragment fragment = (LoginSuccessFragment) getSupportFragmentManager().findFragmentById(R.id.fl_content);
         if (null == fragment) {
             fragment = LoginSuccessFragment.newInstance();

@@ -1,4 +1,4 @@
-package com.jinlong.ebusiness.func.login.register;
+package com.jinlong.ebusiness.func.login.password;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,12 +11,13 @@ import android.widget.EditText;
 
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
+import com.jinlong.ebusiness.dialog.DialogManager;
 import com.jinlong.ebusiness.utils.TextChangeUtil;
+import com.xll.mvplib.dialog.DialogClickListener;
 import com.xll.mvplib.utils.CheckRegUtil;
+import com.xll.mvplib.utils.HandleMapUtil;
 import com.xll.mvplib.utils.ToastUtil;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -26,24 +27,20 @@ import butterknife.Unbinder;
 
 /**
  * @author xll
- * @date 2018/9/17
+ * @date 2018/9/21
  */
 
-public class RegisterFragment extends BaseFragment implements RegisterContract.View {
+public class ForgetPasswordFragment extends BaseFragment implements ForgetPasswordContract.View {
 
     @BindView(R.id.et_email)
     EditText mEtEmail;
-    @BindView(R.id.et_password)
-    EditText mEtPassword;
-    @BindView(R.id.et_password_again)
-    EditText mEtPasswordAgain;
-    @BindView(R.id.btn_register)
-    Button mBtnRegister;
+    @BindView(R.id.btn_forget_pwd)
+    Button mBtnForgetPwd;
     Unbinder unbinder;
-    private RegisterContract.Presenter mPresenter;
+    private ForgetPasswordContract.Presenter mPresenter;
 
-    public static RegisterFragment newInstance() {
-        return new RegisterFragment();
+    public static ForgetPasswordFragment newInstance() {
+        return new ForgetPasswordFragment();
     }
 
     @Override
@@ -54,28 +51,37 @@ public class RegisterFragment extends BaseFragment implements RegisterContract.V
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.register_fragment, container, false);
+        View view = inflater.inflate(R.layout.forget_password_fragment, container, false);
         unbinder = ButterKnife.bind(this, view);
-
-        List<EditText> list = new ArrayList<>();
-        list.add(mEtEmail);
-        list.add(mEtPassword);
-        list.add(mEtPasswordAgain);
-        mEtEmail.addTextChangedListener(new TextChangeUtil(list, mBtnRegister));
-        mEtPassword.addTextChangedListener(new TextChangeUtil(list, mBtnRegister));
-        mEtPasswordAgain.addTextChangedListener(new TextChangeUtil(list, mBtnRegister));
+        mEtEmail.addTextChangedListener(new TextChangeUtil(mEtEmail, mBtnForgetPwd));
         return view;
     }
 
     @Override
-    public void setPresenter(RegisterContract.Presenter presenter) {
+    public void setPresenter(ForgetPasswordContract.Presenter presenter) {
         this.mPresenter = presenter;
     }
 
     @Override
-    public void registerSuccess(Map<String, Object> map) {
+    public void forgetPwdRequestSuccess(Map<String, Object> map) {
         dismissProgressDialog();
-        toLoginActivity();
+        String msg = HandleMapUtil.getString(map, "msg");
+        int code = HandleMapUtil.getInt(map, "code");
+        String title = code == 0 ? "找回密码成功" : "找回密码失败";
+
+        DialogManager.getInstance().showTipsDialog(getActivity(), title,
+                msg, "去登录", new DialogClickListener() {
+                    @Override
+                    public void leftClickListener() {
+
+                    }
+
+                    @Override
+                    public void rightClickListener() {
+                        toLoginActivity();
+                    }
+                }
+        );
     }
 
     @Override
@@ -84,21 +90,16 @@ public class RegisterFragment extends BaseFragment implements RegisterContract.V
         unbinder.unbind();
     }
 
-    @OnClick(R.id.btn_register)
+    @OnClick(R.id.btn_forget_pwd)
     public void onViewClicked() {
         String email = mEtEmail.getText().toString().trim();
-        String pwd = mEtPassword.getText().toString().trim();
-        String pwd2 = mEtPasswordAgain.getText().toString().trim();
 
         if (!CheckRegUtil.isEmail(email)) {
             ToastUtil.showToast(getActivity(), getString(R.string.error_email));
             return;
         }
-        if (!pwd.equals(pwd2)) {
-            ToastUtil.showToast(getActivity(), getString(R.string.pwd_differ));
-            return;
-        }
+
         showProgressDialog();
-        mPresenter.register(email, pwd);
+        mPresenter.forgetPwd(email);
     }
 }

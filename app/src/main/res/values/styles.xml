@@ -9,6 +9,11 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
+    <style name="dialogWindowAnim" parent="android:Animation">
+        <!--<item name="android:windowEnterAnimation">@anim/dialog_anim</item>-->
+        <item name="android:windowExitAnimation">@anim/dialog_anim_exit</item>
+    </style>
+
     <!--默认宽度全屏 高度自适应 左右内边距30-->
     <style name="base_text">
         <item name="android:layout_width">0dp</item>

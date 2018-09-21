@@ -1,11 +1,10 @@
-package com.jinlong.ebusiness.func.mine.password;
+package com.jinlong.ebusiness.func.login.password;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseActivity;
-import com.jinlong.ebusiness.func.login.password.ForgetPasswordPresenter;
 import com.jinlong.ebusiness.injection.Injection;
 import com.xll.mvplib.utils.ActivityUtils;
 
@@ -13,21 +12,22 @@ import org.greenrobot.eventbus.Subscribe;
 
 /**
  * @author xll
- * @date 2018/9/18
+ * @date 2018/9/21
  */
 
-public class ModifyPasswordActivity extends BaseActivity {
+public class ForgetPasswordActivity extends BaseActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(getString(R.string.modify_password));
+        setTitle(getString(R.string.forget_pwd));
 
-        ModifyPasswordFragment fragment = (ModifyPasswordFragment) getSupportFragmentManager().findFragmentById(R.id.fl_content);
+        ForgetPasswordFragment fragment = (ForgetPasswordFragment) getSupportFragmentManager().findFragmentById(R.id.fl_content);
         if (null == fragment) {
-            fragment = ModifyPasswordFragment.newInstance();
+            fragment = ForgetPasswordFragment.newInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), fragment, R.id.fl_content);
         }
-        new ModifyPasswordPresenter(Injection.provideLoanRepository(), fragment, Injection.provideSchedulerProvider());
+        new ForgetPasswordPresenter(Injection.provideLoanRepository(), fragment, Injection.provideSchedulerProvider());
+
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.xll.mvplib.utils;
+package com.jinlong.ebusiness.utils;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -6,13 +6,15 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.jinlong.ebusiness.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 监听多个EditText控制Button的可不可点
  *
- * @aucthor xll.
+ * @author xll
  * @date 2018/9/20 0020.
  */
 
@@ -24,26 +26,40 @@ public class TextChangeUtil implements TextWatcher {
     private int btnEnableBackground;
     private int btnDisabledBackground;
 
-    public TextChangeUtil(EditText editText, TextView btn, int btnEnableBackground, int btnDisabledBackground) {
+    public TextChangeUtil(EditText editText, TextView btn) {
         mList.add(editText);
         this.btn = btn;
+        this.btnEnableBackground = R.drawable.shape_btn_click;
+        this.btnDisabledBackground = R.drawable.shape_btn_un_click;
+    }
+
+    public TextChangeUtil(EditText editText, TextView btn, int btnEnableBackground, int btnDisabledBackground) {
+        this(editText, btn);
         this.btnEnableBackground = btnEnableBackground;
         this.btnDisabledBackground = btnDisabledBackground;
+    }
+
+    public TextChangeUtil(List<EditText> mList, TextView btn) {
+        this.mList = mList;
+        this.btn = btn;
+        this.btnEnableBackground = R.drawable.shape_btn_click;
+        this.btnDisabledBackground = R.drawable.shape_btn_un_click;
     }
 
     public TextChangeUtil(List<EditText> mList, TextView btn, int btnEnableBackground, int btnDisabledBackground) {
-        this.mList = mList;
-        this.btn = btn;
+        this(mList, btn);
         this.btnEnableBackground = btnEnableBackground;
         this.btnDisabledBackground = btnDisabledBackground;
     }
 
-    public TextChangeUtil(List<EditText> mList, TextView btn, CheckBox cb, int btnEnableBackground, int btnDisabledBackground) {
-        this.mList = mList;
-        this.btn = btn;
+    public TextChangeUtil(List<EditText> mList, TextView btn, CheckBox cb) {
+        this(mList, btn);
         this.cb = cb;
-        this.btnEnableBackground = btnEnableBackground;
-        this.btnDisabledBackground = btnDisabledBackground;
+    }
+
+    public TextChangeUtil(List<EditText> mList, TextView btn, CheckBox cb, int btnEnableBackground, int btnDisabledBackground) {
+        this(mList, btn, btnEnableBackground, btnDisabledBackground);
+        this.cb = cb;
     }
 
     @Override
@@ -66,7 +82,7 @@ public class TextChangeUtil implements TextWatcher {
                 btn.setEnabled(false);
                 break;
             } else {
-                if (mList.get(i).getText().length() > 6) {
+                if (mList.get(i).getText().length() > 5) {
                     if (i + 1 == mList.size()) {
                         btn.setBackgroundResource(btnEnableBackground);
                         btn.setEnabled(true);

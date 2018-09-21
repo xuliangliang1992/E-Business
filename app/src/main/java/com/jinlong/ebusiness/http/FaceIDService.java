@@ -5,7 +5,9 @@ import java.util.Map;
 import io.reactivex.Observable;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 import retrofit2.http.Url;
 
 /**
@@ -63,12 +65,11 @@ public interface FaceIDService {
      * 忘记密码
      *
      * @param url
-     * @param map
+     * @param email
      * @return
      */
-    @FormUrlEncoded
-    @POST
-    Observable<Map<String, Object>> forgetPwd(@Url String url, @FieldMap Map<String, Object> map);
+    @GET
+    Observable<Map<String, Object>> forgetPwd(@Url String url, @Query("email") String email);
 
     /**
      * 绑定手机号

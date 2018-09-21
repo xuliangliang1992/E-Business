@@ -14,11 +14,13 @@ import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
 import com.jinlong.ebusiness.base.MainApplication;
 import com.jinlong.ebusiness.constant.Constant;
+import com.jinlong.ebusiness.func.login.password.ForgetPasswordActivity;
 import com.jinlong.ebusiness.func.login.register.RegisterActivity;
+import com.jinlong.ebusiness.utils.TextChangeUtil;
+import com.xll.mvplib.utils.CheckRegUtil;
 import com.xll.mvplib.utils.HandleMapUtil;
 import com.xll.mvplib.utils.SharePreferenceUtil;
 import com.xll.mvplib.utils.StringUtil;
-import com.xll.mvplib.utils.TextChangeUtil;
 import com.xll.mvplib.utils.ToastUtil;
 
 import java.util.ArrayList;
@@ -66,8 +68,8 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
         List<EditText> list = new ArrayList<>();
         list.add(mEtEmail);
         list.add(mEtPassword);
-        mEtEmail.addTextChangedListener(new TextChangeUtil(list, mBtnLogin, mCbAgree, R.drawable.shape_btn_click, R.drawable.shape_btn_un_click));
-        mEtPassword.addTextChangedListener(new TextChangeUtil(list, mBtnLogin, mCbAgree, R.drawable.shape_btn_click, R.drawable.shape_btn_un_click));
+        mEtEmail.addTextChangedListener(new TextChangeUtil(list, mBtnLogin, mCbAgree));
+        mEtPassword.addTextChangedListener(new TextChangeUtil(list, mBtnLogin, mCbAgree));
         return view;
     }
 
@@ -84,8 +86,8 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
             case R.id.cb_agree:
                 email = mEtEmail.getText().toString().trim();
                 pwd = mEtPassword.getText().toString().trim();
-                if (!StringUtil.isStringNull(email) && email.length() > 6
-                        && !StringUtil.isStringNull(pwd) && pwd.length() > 6
+                if (!StringUtil.isStringNull(email) && email.length() > 5
+                        && !StringUtil.isStringNull(pwd) && pwd.length() > 5
                         && mCbAgree.isChecked()) {
                     mBtnLogin.setBackgroundResource(R.drawable.shape_btn_click);
                     mBtnLogin.setEnabled(true);
@@ -95,16 +97,13 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
                 }
                 break;
             case R.id.tv_forget_password:
+                routeTo(ForgetPasswordActivity.class);
                 break;
             case R.id.btn_login:
                 email = mEtEmail.getText().toString().trim();
                 pwd = mEtPassword.getText().toString().trim();
-                if (StringUtil.isStringNull(email)) {
-                    ToastUtil.showToast(getActivity(), getString(R.string.empty_email));
-                    return;
-                }
-                if (StringUtil.isStringNull(email)) {
-                    ToastUtil.showToast(getActivity(), getString(R.string.empty_pwd));
+                if (!CheckRegUtil.isEmail(email)) {
+                    ToastUtil.showToast(getActivity(), getString(R.string.error_email));
                     return;
                 }
                 showProgressDialog();

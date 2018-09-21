@@ -11,8 +11,8 @@ import com.xll.mvplib.R;
 
 
 /**
- *
- * Created by wujinpeng on 2016/8/15.
+ * @author xll
+ * @date 2018/1/1
  */
 public class ToastUtil {
 
@@ -23,20 +23,20 @@ public class ToastUtil {
         showToast(context, text);
     }
 
-    public static void showToast(Context context, String text){
+    public static void showToast(Context context, String text) {
         showToast(context, text, Gravity.BOTTOM);
     }
 
-    public static void showToastCenter(Context context, String text){
+    public static void showToastCenter(Context context, String text) {
         showToast(context, text, Gravity.CENTER);
     }
 
-    public static void showToast(Context context, String text, int gravity){
-        if (StringUtil.isStringNull(text)){
+    public static void showToast(Context context, String text, int gravity) {
+        if (StringUtil.isStringNull(text)) {
             return;
         }
         cancelToast();
-        if (context != null){
+        if (context != null) {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View layout = inflater.inflate(R.layout.toast_layout, null);
@@ -50,7 +50,7 @@ public class ToastUtil {
     }
 
     public static void cancelToast() {
-        if (mToast != null){
+        if (mToast != null) {
             mToast.cancel();
         }
     }

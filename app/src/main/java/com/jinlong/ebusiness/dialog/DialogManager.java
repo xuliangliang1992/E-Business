@@ -2,8 +2,11 @@ package com.jinlong.ebusiness.dialog;
 
 import android.content.Context;
 import android.util.SparseArray;
+import android.view.Window;
 
+import com.jinlong.ebusiness.R;
 import com.xll.mvplib.dialog.BottomListDialog;
+import com.xll.mvplib.dialog.DialogClickListener;
 import com.xll.mvplib.dialog.MiddleListDialog;
 import com.xll.mvplib.dialog.base.BaseDialog;
 import com.xll.mvplib.view.ItemClickListener;
@@ -49,6 +52,23 @@ public class DialogManager {
         mDialog.show();
     }
 
+    public void showTipsDialog(Context context, String title, String message,String btnText, DialogClickListener clickListener) {
+        mDialog = new TipsDialog(context, title, message, btnText,clickListener);
+        mDialog.show();
+        Window window = mDialog.getWindow();
+        window.setWindowAnimations(R.style.dialogWindowAnim);
+    }
+
+    public void showMessagerDialog(Context context, String message, DialogClickListener clickListener) {
+        mDialog = new MessagerDialog(context, message, clickListener);
+        mDialog.show();
+    }
+
+    public void showMessagerDialog(Context context, String message, String left, String right, int pic, DialogClickListener clickListener) {
+        mDialog = new MessagerDialog(context, message, left, right, pic, clickListener);
+        mDialog.show();
+    }
+
     public void showBottomListDialog(Context context, String[] titles, ItemClickListener itemClickListener) {
         mDialog = new BottomListDialog(context, titles, itemClickListener);
         mDialog.show();
@@ -61,7 +81,7 @@ public class DialogManager {
         hud.show();
     }
 
-    public void dismissProgressHUD(){
+    public void dismissProgressHUD() {
         if (null != hud) {
             hud.dismiss();
             hud = null;
