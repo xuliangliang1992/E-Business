@@ -24,7 +24,7 @@ public class HttpUrl {
     /**
      * 修改密码
      */
-    public static final String MODIFY_PWD_URL = Constant.BASE_URL + "Api/User/passwd";
+    public static final String MODIFY_PWD_URL = Constant.BASE_URL + "Api/User/password";
     /**
      * 忘记密码
      */

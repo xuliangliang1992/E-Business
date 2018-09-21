@@ -83,13 +83,19 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
 
         <activity
-            android:name=".func.order.ConfirmOrderActivity"
+            android:name=".func.order.confirm.ConfirmOrderActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
 
         <activity
             android:name=".func.login.password.ForgetPasswordActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+
+        <activity
+            android:name=".func.order.OrderListActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>

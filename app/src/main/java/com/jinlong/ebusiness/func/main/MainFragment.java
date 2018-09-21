@@ -7,9 +7,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v7.content.res.AppCompatResources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,7 +66,6 @@ public class MainFragment extends BaseFragment {
         for (int i = 0; i < fragments.size(); i++) {
             mTabLayout.getTabAt(i).setCustomView(getTabView(i));
         }
-        mTabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(getActivity(), R.color.main_tab_color));
 
         return view;
     }
@@ -88,10 +85,8 @@ public class MainFragment extends BaseFragment {
 
     private View getTabView(int position) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.main_tab_item, mTabLayout, false);
-        ImageView imageView = (ImageView) view.findViewById(R.id.img_title);
-        TextView textView = (TextView) view.findViewById(R.id.txt_title);
-//        TextView tvRead = (TextView) view.findViewById(R.id.tv_read);
-//        tvRead.setVisibility(View.GONE);
+        ImageView imageView = view.findViewById(R.id.img_title);
+        TextView textView = view.findViewById(R.id.txt_title);
         imageView.setImageResource(imgRes[position]);
         textView.setText(titles[position]);
         return view;

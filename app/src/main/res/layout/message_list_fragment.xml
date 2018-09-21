@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:tabGravity="fill"
         app:tabIndicatorHeight="2dp"
-        app:tabMode="scrollable"
+        app:tabMode="fixed"
         app:tabSelectedTextColor="@android:color/holo_red_light"
         app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
         app:tabTextColor="@color/black_9"/>

@@ -23,7 +23,8 @@ import com.jinlong.ebusiness.func.mine.message.MessageListActivity;
 import com.jinlong.ebusiness.func.mine.password.ModifyPasswordActivity;
 import com.jinlong.ebusiness.func.mine.setting.SettingActivity;
 import com.jinlong.ebusiness.func.mine.shipping.ShippingAddressListActivity;
-import com.jinlong.ebusiness.func.order.ConfirmOrderActivity;
+import com.jinlong.ebusiness.func.order.OrderListActivity;
+import com.jinlong.ebusiness.func.order.confirm.ConfirmOrderActivity;
 import com.xll.mvplib.utils.SharePreferenceUtil;
 import com.xll.mvplib.utils.StringUtil;
 import com.xll.mvplib.view.ItemClickListener;
@@ -103,7 +104,7 @@ public class MineFragment extends BaseFragment {
         if (Constant.ENGLISH.equals(language)) {
             mTvLanguage.setText(R.string.language_english);
         }
-        
+
         return view;
     }
 
@@ -134,6 +135,7 @@ public class MineFragment extends BaseFragment {
                 break;
             case R.id.rl_orders:
                 //我的订单
+                routeTo(OrderListActivity.class);
                 break;
             case R.id.tv_message:
                 //消息列表

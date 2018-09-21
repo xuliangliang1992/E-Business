@@ -12,12 +12,13 @@ import com.jinlong.ebusiness.base.BaseFragment;
 
 /**
  * @author xll
- * @date 2018/9/17
+ * @date 2018/9/21
  */
 
-public class ConfirmOrderFragment extends BaseFragment {
-    public static ConfirmOrderFragment newInstance() {
-        return new ConfirmOrderFragment();
+public class ClosedOrderFragment extends BaseFragment {
+
+    public static ClosedOrderFragment newInstance() {
+        return new ClosedOrderFragment();
     }
 
     @Override
@@ -28,7 +29,7 @@ public class ConfirmOrderFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.order_confirm_fragment, container, false);
+        View view = inflater.inflate(R.layout.order_fragment, container, false);
 
         return view;
     }

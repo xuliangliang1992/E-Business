@@ -1,11 +1,10 @@
-package com.jinlong.ebusiness.func.order;
+package com.jinlong.ebusiness.func.order.confirm;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseActivity;
-import com.jinlong.ebusiness.func.mine.collection.CollectionListFragment;
 import com.xll.mvplib.utils.ActivityUtils;
 
 import org.greenrobot.eventbus.Subscribe;

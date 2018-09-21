@@ -1,4 +1,4 @@
-package com.jinlong.ebusiness.func.mine.message;
+package com.jinlong.ebusiness.func.order;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -25,7 +25,7 @@ import butterknife.Unbinder;
  * @date 2018/9/17
  */
 
-public class MessageListFragment extends BaseFragment {
+public class OrderListFragment extends BaseFragment {
 
     @BindView(R.id.tab_layout)
     TabLayout mTabLayout;
@@ -35,8 +35,8 @@ public class MessageListFragment extends BaseFragment {
     private String[] titles;
     private List<BaseFragment> fragments;
 
-    public static MessageListFragment newInstance() {
-        return new MessageListFragment();
+    public static OrderListFragment newInstance() {
+        return new OrderListFragment();
     }
 
     @Override
@@ -50,24 +50,26 @@ public class MessageListFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.message_list_fragment, container, false);
         unbinder = ButterKnife.bind(this, view);
-        MainViewPagerAdapter mAdapter = new MainViewPagerAdapter(getFragmentManager(), fragments, titles);
+        MainViewPagerAdapter mAdapter = new MainViewPagerAdapter(getFragmentManager(), fragments,titles);
         mViewPager.setAdapter(mAdapter);
-        mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        mTabLayout.setTabMode(TabLayout.MODE_FIXED);
         mTabLayout.setupWithViewPager(mViewPager);
+
         return view;
+    }
+
+    private void initResource() {
+        fragments = new ArrayList<>();
+        titles = new String[]{"进行中", "已完成", "已关闭"};
+        fragments.add(CompletedOrderFragment.newInstance());
+        fragments.add(OrderInProgressFragment.newInstance());
+        fragments.add(ClosedOrderFragment.newInstance());
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
-    }
-
-    private void initResource() {
-        fragments = new ArrayList<>();
-        titles = new String[]{getString(R.string.system_message), getString(R.string.notification)};
-        fragments.add(SystemMessageFragment.newInstance());
-        fragments.add(NotificationFragment.newInstance());
     }
 
 }
