@@ -3,10 +3,9 @@ package com.xll.mvplib.utils;
 import java.util.Map;
 
 /**
- * Created by wujinpeng on 2017/3/23.
- * Copyright © SAIC FINANCE All Rights Reserved
+ * @author xll
+ * @date 2018/1/1
  */
-
 public class HandleMapUtil {
 
     public static int getInt(Map map, String key) {

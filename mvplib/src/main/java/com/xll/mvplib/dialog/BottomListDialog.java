@@ -14,10 +14,11 @@ import com.xll.mvplib.dialog.base.BottomBaseDialog;
 import com.xll.mvplib.view.ItemClickListener;
 import com.xll.mvplib.view.decoration.HorizontalDividerItemDecoration;
 
-
 /**
  * 底部有取消按钮的弹出框 从底部弹出
- * Created by wujinpeng on 2016/10/20.
+ *
+ * @author xll
+ * @date 2018/1/1
  */
 public class BottomListDialog extends BottomBaseDialog {
     private String[] titles;
@@ -54,7 +55,7 @@ public class BottomListDialog extends BottomBaseDialog {
         return true;
     }
 
-    class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder>{
+    class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> {
 
         private ItemClickListener itemClickListener;
 
@@ -71,7 +72,7 @@ public class BottomListDialog extends BottomBaseDialog {
 
         @Override
         public int getItemCount() {
-            if (titles!= null){
+            if (titles != null) {
                 return titles.length;
             }
             return 0;
@@ -81,15 +82,16 @@ public class BottomListDialog extends BottomBaseDialog {
             itemClickListener = onItemClickListener;
         }
 
-        class MyViewHolder extends RecyclerView.ViewHolder{
+        class MyViewHolder extends RecyclerView.ViewHolder {
             TextView mTextView;
+
             public MyViewHolder(View itemView, final ItemClickListener itemClickListener) {
                 super(itemView);
                 mTextView = (TextView) itemView.findViewById(R.id.tv_text);
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (itemClickListener!=null){
+                        if (itemClickListener != null) {
                             itemClickListener.onItemClickListener(v, getAdapterPosition());
                             dismiss();
                         }

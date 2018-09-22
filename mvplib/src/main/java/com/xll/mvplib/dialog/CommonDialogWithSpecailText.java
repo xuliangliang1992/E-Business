@@ -12,12 +12,12 @@ import com.xll.mvplib.R;
 import com.xll.mvplib.dialog.base.BaseDialog;
 import com.xll.mvplib.utils.StringUtil;
 
-
 /**
  * 特殊字段需要改颜色，现在都是蓝色，如果后期要可以改为任意颜色 可以再加一个参数
- * Created by wujinpeng on 2017/5/10.
+ *
+ * @author xll
+ * @date 2018/1/1
  */
-
 public class CommonDialogWithSpecailText extends BaseDialog {
     private TextView tvTitle;
     private TextView tvContent;

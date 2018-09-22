@@ -11,8 +11,8 @@ import com.xll.mvplib.utils.BitmapUtil;
 import com.xll.mvplib.view.SignView;
 
 /**
- *  签名框
- * Created by wujinpeng on 2016/9/9.
+ * @author xll
+ * @date 2018/1/1
  */
 public class SignDialog extends BaseDialog {
 

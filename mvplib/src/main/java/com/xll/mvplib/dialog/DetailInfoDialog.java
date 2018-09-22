@@ -14,21 +14,11 @@ import java.util.Map;
 import butterknife.ButterKnife;
 
 /**
- * /**
- *
- * @author :wcz
- *         展示信息的dialog
- *         功能入口关联之后显示信息
- *         ---------------------------
- *         |          title          |
- *         |          TextView       |
- *         ---------------------------
- *         |    left    |    right   |
- *         ---------------------------
- *         Created by wujinpeng on 2016/9/6.
+ * @author xll
+ * @date 2018/1/1
  */
 public class DetailInfoDialog extends BaseDialog {
-    public static final int DEFAULT_NON_PIC = 0 ;
+    public static final int DEFAULT_NON_PIC = 0;
 
     TextView tvName;
     TextView tvPhoneNo;
@@ -51,7 +41,7 @@ public class DetailInfoDialog extends BaseDialog {
         setCancel(false);
     }
 
-    public DetailInfoDialog(Context context, @NonNull Map<String,String> map, DialogClickListener clickListener){
+    public DetailInfoDialog(Context context, @NonNull Map<String, String> map, DialogClickListener clickListener) {
         super(context);
         this.clickListener = clickListener;
         this.name = map.get("name");

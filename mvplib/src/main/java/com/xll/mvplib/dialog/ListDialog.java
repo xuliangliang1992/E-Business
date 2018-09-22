@@ -30,8 +30,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 该dialog为全屏的
- * Created by wujinpeng on 2016/9/9.
+ * 全屏dialog
+ *
+ * @author xll
+ * @date 2018/1/1
  */
 public class ListDialog extends BaseDialog {
 
@@ -43,6 +45,7 @@ public class ListDialog extends BaseDialog {
     private ItemAdapter adapter;
     private ImageView ivBack;
     private TextView tvTitle;
+
     /**
      * method execute order:
      * show:constrouctor---show---oncreate---onStart---onAttachToWindow
@@ -54,7 +57,7 @@ public class ListDialog extends BaseDialog {
         super(context);
     }
 
-    public ListDialog(Context context, String title, List<Map<String,String>> data, ItemClickListener onItemClickListener) {
+    public ListDialog(Context context, String title, List<Map<String, String>> data, ItemClickListener onItemClickListener) {
         super(context);
         this.title = title;
         this.data = data;
@@ -112,14 +115,14 @@ public class ListDialog extends BaseDialog {
         return view;
     }
 
-    private void filterData(){
+    private void filterData() {
         //过滤掉uc的经销商
-        if (data != null && data.size() > 0){
+        if (data != null && data.size() > 0) {
             Iterator<Map<String, String>> iterator = data.iterator();
-            while (iterator.hasNext()){
-                Map<String,String> map = iterator.next();
+            while (iterator.hasNext()) {
+                Map<String, String> map = iterator.next();
                 String name = map.get("name");
-                if (!StringUtil.isStringNull(name) && name.toLowerCase().contains("uc")){
+                if (!StringUtil.isStringNull(name) && name.toLowerCase().contains("uc")) {
                     iterator.remove();
                 }
             }
@@ -150,7 +153,7 @@ public class ListDialog extends BaseDialog {
 
         @Override
         public void onBindViewHolder(final MyViewHolder holder, final int position) {
-            if (mOnItemClickListener != null){
+            if (mOnItemClickListener != null) {
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -164,33 +167,33 @@ public class ListDialog extends BaseDialog {
 
         @Override
         public int getItemCount() {
-            if (data!= null){
+            if (data != null) {
                 return data.size();
             }
             return 0;
         }
 
         public void setOnItemClickListener(ItemClickListener onItemClickListener) {
-            if (itemClickListener != null){
+            if (itemClickListener != null) {
                 itemClickListener = onItemClickListener;
             }
         }
 
         @Override
         public Filter getFilter() {
-            return new Filter(){
+            return new Filter() {
                 @Override
                 protected FilterResults performFiltering(CharSequence constraint) {
                     FilterResults filterResults = new FilterResults();
-                    if (filterResults.values == null){
+                    if (filterResults.values == null) {
                         data.clear();
                         data.addAll(copyData);
                     }
 
-                    if (constraint == null || constraint.length() == 0){
+                    if (constraint == null || constraint.length() == 0) {
                         filterResults.values = copyData;
                         filterResults.count = copyData.size();
-                    }else{
+                    } else {
                         String prefixString = constraint.toString();
                         ArrayList<Map<String, String>> queryData = new ArrayList<>();
                         for (Map<String, String> map : data) {
@@ -214,8 +217,9 @@ public class ListDialog extends BaseDialog {
             };
         }
 
-        class MyViewHolder extends RecyclerView.ViewHolder{
+        class MyViewHolder extends RecyclerView.ViewHolder {
             TextView mTextView;
+
             public MyViewHolder(View itemView) {
                 super(itemView);
                 mTextView = (TextView) itemView.findViewById(R.id.tv_item);

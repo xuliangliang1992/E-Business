@@ -6,7 +6,6 @@ import android.widget.ImageView;
 
 import java.lang.ref.WeakReference;
 
-
 /**
  * 异步加载图片
  *

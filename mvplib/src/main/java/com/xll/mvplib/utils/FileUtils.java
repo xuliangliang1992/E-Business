@@ -16,16 +16,13 @@ import java.io.InputStream;
 import okhttp3.ResponseBody;
 
 /**
- * 功能：
- * 作者：xll
- * 日期：2018/1/2
- * 邮箱：liangliang.xu1110@gmail.com
+ * @author xll
+ * @date 2018/1/1
  */
-
 public class FileUtils {
 
     // 图片保存路径
-    public static String IMAGE_SD_PATH = Environment.getExternalStorageDirectory()+ File.separator + APP.APP_PACKAGE + File.separator + "Photo_Sp/";
+    public static String IMAGE_SD_PATH = Environment.getExternalStorageDirectory() + File.separator + APP.APP_PACKAGE + File.separator + "Photo_Sp/";
     // apk保存路径
     public static String APK_SD_PATH = Environment.getExternalStorageDirectory() + File.separator + APP.APP_PACKAGE + File.separator + "Apk_Sp/";
     //合同保存路径
@@ -33,10 +30,11 @@ public class FileUtils {
     // 文件类型0:图片 1:apk
     public static final int FILE_TYPE_IMAGE = 0;
     public static final int FILE_TYPE_APK = 1;
+
     /**
+     * @return boolean
      * @Title: sdCardExist
      * @Description: 检测手机是否存在sd card
-     * @return boolean
      */
     public static boolean sdCardExist() {
         return Environment.getExternalStorageState().equals(
@@ -44,11 +42,10 @@ public class FileUtils {
     }
 
     /**
+     * @param folderPath
+     * @return boolean
      * @Title: createFolder
      * @Description: 新建文件夹
-     * @param folderPath
-     * @return
-     * boolean
      */
     public static boolean createFolder(String folderPath) {
         if (!sdCardExist()) {
@@ -60,7 +57,7 @@ public class FileUtils {
                 return dir.mkdirs();
             }
         }
-        return  false;
+        return false;
     }
 
     /**
@@ -83,37 +80,37 @@ public class FileUtils {
         return "";
     }
 
-    public static File createFile(String fileName, int fileType){
+    public static File createFile(String fileName, int fileType) {
         if (!sdCardExist()) {
             return null;
         }
-        String filePath="";
+        String filePath = "";
         if (fileType == FILE_TYPE_IMAGE) {
             filePath = IMAGE_SD_PATH + fileName;
-        } else if (fileType == FILE_TYPE_APK){
+        } else if (fileType == FILE_TYPE_APK) {
             filePath = APK_SD_PATH + fileName;
         }
         File file = new File(filePath);
-        if(!file.exists()){
+        if (!file.exists()) {
             File vDirPath = file.getParentFile();
             vDirPath.mkdirs();
         }
         return file;
     }
 
-    public static File createFile(String fileName){
+    public static File createFile(String fileName) {
         if (!sdCardExist()) {
             return null;
         }
         File file = new File(fileName);
-        if(!file.exists()){
+        if (!file.exists()) {
             File vDirPath = file.getParentFile();
             vDirPath.mkdirs();
         }
         return file;
     }
 
-    public static boolean saveApkOnSdCard(ResponseBody responseBody, String fileName){
+    public static boolean saveApkOnSdCard(ResponseBody responseBody, String fileName) {
         InputStream is = null;
         FileOutputStream fos = null;
         BufferedInputStream bis = null;
@@ -121,7 +118,7 @@ public class FileUtils {
             is = responseBody.byteStream();
 
             File cacheFile = FileUtils.createFile(fileName, FileUtils.FILE_TYPE_APK);
-            if (cacheFile != null){
+            if (cacheFile != null) {
                 fos = new FileOutputStream(cacheFile);
                 bis = new BufferedInputStream(is);
                 byte[] buffer = new byte[1024];
@@ -136,15 +133,15 @@ public class FileUtils {
         } catch (IOException e) {
             e.printStackTrace();
             return false;
-        }finally {
+        } finally {
             try {
-                if (fos != null){
+                if (fos != null) {
                     fos.close();
                 }
-                if (bis != null){
+                if (bis != null) {
                     bis.close();
                 }
-                if (is != null){
+                if (is != null) {
                     is.close();
                 }
             } catch (IOException e) {
@@ -153,7 +150,7 @@ public class FileUtils {
         }
     }
 
-    public static boolean saveFileOnSdCard(ResponseBody responseBody, String fileName){
+    public static boolean saveFileOnSdCard(ResponseBody responseBody, String fileName) {
         InputStream is = null;
         FileOutputStream fos = null;
         BufferedInputStream bis = null;
@@ -161,7 +158,7 @@ public class FileUtils {
             is = responseBody.byteStream();
 
             File cacheFile = FileUtils.createFile(fileName);
-            if (cacheFile != null){
+            if (cacheFile != null) {
                 fos = new FileOutputStream(cacheFile);
                 bis = new BufferedInputStream(is);
                 byte[] buffer = new byte[1024];
@@ -176,15 +173,15 @@ public class FileUtils {
         } catch (IOException e) {
             e.printStackTrace();
             return false;
-        }finally {
+        } finally {
             try {
-                if (fos != null){
+                if (fos != null) {
                     fos.close();
                 }
-                if (bis != null){
+                if (bis != null) {
                     bis.close();
                 }
-                if (is != null){
+                if (is != null) {
                     is.close();
                 }
             } catch (IOException e) {
@@ -195,14 +192,12 @@ public class FileUtils {
 
     /**
      * 删除此路径名表示的文件或目录。 </p>
-     *
+     * <p>
      * 如果此路径名表示一个目录，则会先删除目录下的内容再将目录删除，所以该操作不是原子性的。</p>
-     *
+     * <p>
      * 如果目录中还有目录，则会引发递归动作。</p>
      *
-     * @param filePath
-     *            要删除文件或目录的路径。
-     *
+     * @param filePath 要删除文件或目录的路径。
      * @return 当且仅当成功删除文件或目录时，返回 true；否则返回 false。
      */
     public static boolean deleteFile(String filePath) {
@@ -212,18 +207,18 @@ public class FileUtils {
 
     /**
      * 删除此路径名表示的文件或目录。 </p>
-     *
+     * <p>
      * 如果此路径名表示一个目录，则会先删除目录下的内容再将目录删除，所以该操作不是原子性的。</p>
-     *
+     * <p>
      * 如果目录中还有目录，则会引发递归动作。</p>
-     *
-     *            要删除文件或目录的File。
+     * <p>
+     * 要删除文件或目录的File。
      *
      * @return 当且仅当成功删除文件或目录时，返回 true；否则返回 false。
      */
     public static boolean deleteFile(File file) {
         File[] files = file.listFiles();
-        if(files == null){
+        if (files == null) {
             return false;
         }
         for (File deleteFile : files) {
@@ -248,7 +243,7 @@ public class FileUtils {
     }
 
     public static boolean deleteFile2(String filePath) {
-        if (StringUtil.isStringNull(filePath)){
+        if (StringUtil.isStringNull(filePath)) {
             return false;
         }
         File file = new File(filePath);
@@ -261,17 +256,18 @@ public class FileUtils {
 
     /**
      * 将文件转为String
+     *
      * @param file
      * @return
      */
-    public static String file2String(File file){
+    public static String file2String(File file) {
         try {
             FileInputStream in = new FileInputStream(file);
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            byte[] buffer=new byte[1024];
+            byte[] buffer = new byte[1024];
             int length;
-            while((length = in.read(buffer)) != -1) {
-                bos.write(buffer,0,length);
+            while ((length = in.read(buffer)) != -1) {
+                bos.write(buffer, 0, length);
             }
             bos.close();
             in.close();

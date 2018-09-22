@@ -8,10 +8,9 @@ import android.widget.TextView;
 import com.xll.mvplib.R;
 import com.xll.mvplib.dialog.base.BaseDialog;
 
-
 /**
- *
- * Created by wujinpeng on 2016/11/1.
+ * @author xll
+ * @date 2018/1/1
  */
 public class MentionDialog extends BaseDialog {
 
@@ -22,7 +21,7 @@ public class MentionDialog extends BaseDialog {
         super(context);
     }
 
-    public MentionDialog(Context context, int imageId, String message){
+    public MentionDialog(Context context, int imageId, String message) {
         super(context);
         this.imageId = imageId;
         this.message = message;

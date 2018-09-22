@@ -18,13 +18,13 @@ import com.jinlong.ebusiness.base.MainApplication;
 import com.jinlong.ebusiness.constant.Constant;
 import com.jinlong.ebusiness.dialog.DialogManager;
 import com.jinlong.ebusiness.func.login.LoginActivity;
+import com.jinlong.ebusiness.func.mine.bind.BindPhoneActivity;
 import com.jinlong.ebusiness.func.mine.collection.CollectionListActivity;
 import com.jinlong.ebusiness.func.mine.message.MessageListActivity;
 import com.jinlong.ebusiness.func.mine.password.ModifyPasswordActivity;
 import com.jinlong.ebusiness.func.mine.setting.SettingActivity;
 import com.jinlong.ebusiness.func.mine.shipping.ShippingAddressListActivity;
 import com.jinlong.ebusiness.func.order.OrderListActivity;
-import com.jinlong.ebusiness.func.order.confirm.ConfirmOrderActivity;
 import com.xll.mvplib.utils.SharePreferenceUtil;
 import com.xll.mvplib.utils.StringUtil;
 import com.xll.mvplib.view.ItemClickListener;
@@ -154,7 +154,7 @@ public class MineFragment extends BaseFragment {
                 break;
             case R.id.tv_FAQ:
                 //常见问题
-                routeTo(ConfirmOrderActivity.class);
+                routeTo(BindPhoneActivity.class);
                 break;
             case R.id.tv_feedback:
                 //意见反馈

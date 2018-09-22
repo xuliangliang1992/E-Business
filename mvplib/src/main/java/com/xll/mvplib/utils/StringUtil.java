@@ -3,12 +3,9 @@ package com.xll.mvplib.utils;
 import java.text.DecimalFormat;
 
 /**
- * 功能：
- * 作者：xll
- * 日期：2018/1/2
- * 邮箱：liangliang.xu1110@gmail.com
+ * @author xll
+ * @date 2018/1/1
  */
-
 public class StringUtil {
 
     public static final int BIRTH_YEAR = 1;

@@ -8,8 +8,10 @@ import android.widget.EditText;
 import com.orhanobut.logger.Logger;
 
 /**
- * Description: 输入的手机号与银行卡号格式化
- * Created by weicz on 16/8/19.
+ * 输入的手机号与银行卡号格式化
+ *
+ * @author xll
+ * @date 2018/1/1
  */
 public class EditTextFormat {
 
@@ -29,7 +31,7 @@ public class EditTextFormat {
             public void beforeTextChanged(CharSequence s, int start, int count,
                                           int after) {
                 beforeTextLength = s.length();
-                Logger.t(EditTextFormat.class.getSimpleName()).i("beforeTextLength ="+s.length());
+                Logger.t(EditTextFormat.class.getSimpleName()).i("beforeTextLength =" + s.length());
                 if (buffer.length() > 0) {
                     buffer.delete(0, buffer.length());
                 }
@@ -45,7 +47,7 @@ public class EditTextFormat {
             public void onTextChanged(CharSequence s, int start, int before,
                                       int count) {
                 onTextLength = s.length();
-                Logger.t(EditTextFormat.class.getSimpleName()).i("onTextLength ="+s.length());
+                Logger.t(EditTextFormat.class.getSimpleName()).i("onTextLength =" + s.length());
                 buffer.append(s.toString());
 
 //                if (onTextLength == beforeTextLength || onTextLength <= 3
@@ -193,9 +195,9 @@ public class EditTextFormat {
     /**
      * 获取去掉空格的数据
      */
-    public static String getFormatNo(EditText editText){
+    public static String getFormatNo(EditText editText) {
         if (!StringUtil.isStringNull(editText.getText().toString())) {
-            return editText.getText().toString().replace(" ","");
+            return editText.getText().toString().replace(" ", "");
         }
         return null;
     }

@@ -17,14 +17,12 @@ import java.io.FileInputStream;
 import java.util.Locale;
 import java.util.Properties;
 
-
 /**
- * 功能：application基类 主要做一些共有的初始化动作
- * 作者：xll
- * 日期：2018/1/2
- * 邮箱：liangliang.xu1110@gmail.com
+ * application基类 主要做一些共有的初始化动作
+ *
+ * @author xll
+ * @date 2018/1/1
  */
-
 public class APP extends Application {
 
     public static int APP_VERSION_CODE;

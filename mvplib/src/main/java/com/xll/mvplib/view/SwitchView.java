@@ -21,9 +21,11 @@ import android.view.animation.AccelerateInterpolator;
 
 import com.xll.mvplib.R;
 
-
 /**
  * 仿ios的switchButton
+ *
+ * @author xll
+ * @date 2018/1/1
  */
 public class SwitchView extends View {
     private final int DEFAULT_COLOR_PRIMARY = 0xFF4BD763;

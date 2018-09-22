@@ -8,10 +8,9 @@ import com.xll.mvplib.dialog.base.BaseDialog;
 import com.xll.mvplib.view.GifView;
 
 /**
- * Created by wujinpeng on 2017/3/21.
- * Copyright © SAIC FINANCE All Rights Reserved
+ * @author xll
+ * @date 2018/1/1
  */
-
 public class GifProgressDialog extends BaseDialog {
 
     private int gifRes;
@@ -35,7 +34,7 @@ public class GifProgressDialog extends BaseDialog {
     @Override
     public View onCreateView() {
         View view = View.inflate(context, R.layout.gif_progress_dialog, null);
-        if (gifRes != 0){
+        if (gifRes != 0) {
             GifView gifView = (GifView) view.findViewById(R.id.gif_view);
             gifView.setMovieResource(gifRes);
         }

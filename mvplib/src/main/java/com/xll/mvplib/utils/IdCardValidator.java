@@ -6,19 +6,15 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * <p>
  * 身份证合法性校验
- * </p>
- *
- * <pre>
  * --15位身份证号码：第7、8位为出生年份(两位数)，第9、10位为出生月份，第11、12位代表出生日期，第15位代表性别，奇数为男，偶数为女。
  * --18位身份证号码：第7、8、9、10位为出生年份(四位数)，第11、第12位为出生月份，第13、14位代表出生日期，第17位代表性别，奇数为男，偶数为女。
- *    最后一位为校验位
- * </pre>
+ * 最后一位为校验位
  *
- * @author 313921
+ * @author xll
+ * @date 2018/1/1
  */
-public class IdcardValidator {
+public class IdCardValidator {
     /**
      * <pre>
      * 省、直辖市代码表：
@@ -33,22 +29,21 @@ public class IdcardValidator {
      *     91 : 国外
      * </pre>
      */
-    private static String cityCode[] = { "11", "12", "13", "14", "15", "21",
+    private static String cityCode[] = {"11", "12", "13", "14", "15", "21",
             "22", "23", "31", "32", "33", "34", "35", "36", "37", "41", "42",
             "43", "44", "45", "46", "50", "51", "52", "53", "54", "61", "62",
-            "63", "64", "65", "71", "81", "82", "91" };
+            "63", "64", "65", "71", "81", "82", "91"};
 
     /**
      * 每位加权因子
      */
-    private static int power[] = { 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5,
-            8, 4, 2 };
+    private static int power[] = {7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5,
+            8, 4, 2};
 
     /**
      * 验证所有的身份证的合法性
      *
-     * @param idCard
-     *            身份证
+     * @param idCard 身份证
      * @return 合法返回true，否则返回false
      */
     public static boolean isValidatedIdCard(String idCard) {
@@ -159,7 +154,7 @@ public class IdcardValidator {
 
     /**
      * 校验15位身份证
-     *
+     * <p>
      * <pre>
      * 只校验省份和出生年月日
      * </pre>

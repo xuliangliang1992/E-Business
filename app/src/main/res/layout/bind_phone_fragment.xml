@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+    <TextView
+        android:id="@+id/tv_phone_area"
+        android:layout_width="@dimen/x150"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/x80"
+        android:drawableEnd="@drawable/down"
+        android:gravity="center_vertical"
+        android:text="+968"
+        android:textColor="@color/black_3"
+        android:textSize="@dimen/text_size_32"
+        app:layout_constraintBottom_toBottomOf="@+id/et_phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/et_phone" />
+
+    <EditText
+        android:id="@+id/et_phone"
+        style="@style/modify_password_edit_text"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="@dimen/y100"
+        android:hint="请输入手机号"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_phone_area"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        style="@style/viewLineMarginLeftRight_80"
+        app:layout_constraintTop_toBottomOf="@+id/et_phone" />
+
+    <EditText
+        android:id="@+id/et_code"
+        style="@style/modify_password_edit_text"
+        android:hint="请输入验证码"
+        android:inputType="phone"
+        app:layout_constraintEnd_toStartOf="@+id/tb_send_code"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_phone" />
+
+    <com.xll.mvplib.view.TimeButton
+        android:id="@+id/tb_send_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/x80"
+        android:text="获取验证码"
+        android:textColor="@color/black_7"
+        android:textSize="@dimen/text_size_26"
+        app:layout_constraintBottom_toBottomOf="@+id/et_code"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/et_code"
+        app:layout_constraintTop_toTopOf="@+id/et_code" />
+
+    <Button
+        android:id="@+id/btn_forget_pwd"
+        style="@style/button"
+        android:layout_marginTop="@dimen/y60"
+        android:background="@drawable/shape_btn_un_click"
+        android:text="确认"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_code" />
+</android.support.constraint.ConstraintLayout>

@@ -91,7 +91,7 @@ public class CheckRegUtil {
 //        Matcher m = p.matcher(idNo);
 //        Matcher m2 = p2.matcher(idNo);
 //        return m.matches() || m2.matches();
-        return IdcardValidator.isValidatedIdCard(idNo);
+        return IdCardValidator.isValidatedIdCard(idNo);
     }
 
 }

@@ -5,8 +5,10 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 
 /**
- * Description: 主要是用来控制输入的金额不能超过小数点后两位
- * Created by weichangzhou on 2016/9/13.
+ * 主要是用来控制输入的金额不能超过小数点后两位
+ *
+ * @author xll
+ * @date 2018/1/1
  */
 public class CheckMoney {
 

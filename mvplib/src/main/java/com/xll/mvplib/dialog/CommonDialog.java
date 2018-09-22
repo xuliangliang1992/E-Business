@@ -9,19 +9,17 @@ import com.xll.mvplib.R;
 import com.xll.mvplib.dialog.base.BaseDialog;
 import com.xll.mvplib.utils.StringUtil;
 
-
 /**
- * /**
+ * 一般的普通框
+ * ---------------------------
+ * |          title          |
+ * |         content         |
+ * ---------------------------
+ * |    left    |    right   |
+ * ---------------------------
  *
- * @author :wjp
- *         一般的普通框
- *         ---------------------------
- *         |          title          |
- *         |         content         |
- *         ---------------------------
- *         |    left    |    right   |
- *         ---------------------------
- *         Created by wujinpeng on 2016/9/6.
+ * @author xll
+ * @date 2018/1/1
  */
 public class CommonDialog extends BaseDialog {
 
@@ -134,7 +132,7 @@ public class CommonDialog extends BaseDialog {
                 if (null != clickListener) {
                     clickListener.rightClickListener();
                 }
-                if (rightDismiss){
+                if (rightDismiss) {
                     dismiss();
                 }
             }

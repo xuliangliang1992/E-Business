@@ -15,10 +15,9 @@ import com.xll.mvplib.dialog.base.BaseDialog;
 import com.xll.mvplib.view.ItemClickListener;
 import com.xll.mvplib.view.decoration.HorizontalDividerItemDecoration;
 
-
 /**
- * 该dialog为全屏的
- * Created by wujinpeng on 2016/9/9.
+ * @author xll
+ * @date 2018/1/1
  */
 public class MiddleListDialog extends BaseDialog {
 
@@ -28,6 +27,7 @@ public class MiddleListDialog extends BaseDialog {
     private TextView tvTitle;
 
     private SparseArray<String> listData;
+
     /**
      * method execute order:
      * show:constrouctor---show---oncreate---onStart---onAttachToWindow
@@ -70,7 +70,7 @@ public class MiddleListDialog extends BaseDialog {
         return false;
     }
 
-    class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder>{
+    class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> {
 
         private ItemClickListener itemClickListener;
 
@@ -87,20 +87,21 @@ public class MiddleListDialog extends BaseDialog {
 
         @Override
         public int getItemCount() {
-            if (listData!= null){
+            if (listData != null) {
                 return listData.size();
             }
             return 0;
         }
 
         public void setOnItemClickListener(ItemClickListener onItemClickListener) {
-            if (itemClickListener != null){
+            if (itemClickListener != null) {
                 itemClickListener = onItemClickListener;
             }
         }
 
-        class MyViewHolder extends RecyclerView.ViewHolder{
+        class MyViewHolder extends RecyclerView.ViewHolder {
             TextView mTextView;
+
             public MyViewHolder(View itemView, final ItemClickListener onItemClickListener) {
                 super(itemView);
                 mTextView = (TextView) itemView.findViewById(R.id.tv_item);

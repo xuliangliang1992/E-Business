@@ -8,8 +8,10 @@ import java.io.FileOutputStream;
 import java.io.PrintWriter;
 
 /**
+ * 主要是用来控制输入的金额不能超过小数点后两位
  *
- * Created by lenovo on 2015/8/4.
+ * @author xll
+ * @date 2018/1/1
  */
 public class ResolutionUtils {
     private final static String rootPath = "E:\\layout\\values-{0}x{1}\\";
@@ -100,7 +102,7 @@ public class ResolutionUtils {
             pw.print(sb2.toString());
             pw.close();
         } catch (FileNotFoundException e) {
-            Log.e(ResolutionUtils.class.getSimpleName(),e.getMessage());
+            Log.e(ResolutionUtils.class.getSimpleName(), e.getMessage());
         }
 
     }

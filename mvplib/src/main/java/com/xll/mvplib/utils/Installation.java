@@ -9,10 +9,11 @@ import java.io.RandomAccessFile;
 import java.util.UUID;
 
 /**
- * Installtion ID : UUID 生产一个唯一的标示
- * Created by wujinpeng on 2017/6/14.
+ * UUID 生产一个唯一的标示
+ *
+ * @author xll
+ * @date 2018/1/1
  */
-
 public class Installation {
     private static String sID = null;
     private static final String INSTALLATION = "INSTALLATION";

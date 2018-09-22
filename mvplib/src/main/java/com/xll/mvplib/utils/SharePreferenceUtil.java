@@ -8,8 +8,10 @@ import java.lang.reflect.Method;
 import java.util.Map;
 
 /**
- * sharepreference 工具类
- * Created by wujinpeng on 2016/8/22.
+ * sharePreference 工具类
+ *
+ * @author xll
+ * @date 2018/1/1
  */
 public class SharePreferenceUtil {
     public static final String HEADER_TOKEN = "auth_token";
@@ -24,12 +26,12 @@ public class SharePreferenceUtil {
 
     private static SharePreferenceUtil INSTANCE;
 
-    private SharePreferenceUtil(){
+    private SharePreferenceUtil() {
 
     }
 
-    public synchronized static SharePreferenceUtil getInstance(){
-        if (INSTANCE == null){
+    public synchronized static SharePreferenceUtil getInstance() {
+        if (INSTANCE == null) {
             INSTANCE = new SharePreferenceUtil();
         }
         return INSTANCE;
@@ -38,8 +40,8 @@ public class SharePreferenceUtil {
     /**
      * 保存数据的方法，我们需要拿到保存数据的具体类型，然后根据类型调用不同的保存方法
      *
-     * @param key     key
-     * @param object  value
+     * @param key    key
+     * @param object value
      */
     public void put(Context context, String fileName, String key, Object object) {
         SharedPreferences sp = context.getSharedPreferences(fileName,
