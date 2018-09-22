@@ -9,13 +9,20 @@ import android.view.ViewGroup;
 
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
+import com.jinlong.ebusiness.func.mine.password.ModifyPasswordContract;
+import com.xll.mvplib.utils.HandleMapUtil;
+import com.xll.mvplib.utils.ToastUtil;
+
+import java.util.Map;
 
 /**
  * @author xll
  * @date 2018/9/21
  */
 
-public class BindPhoneFragment extends BaseFragment {
+public class BindPhoneFragment extends BaseFragment implements BindPhoneContract.View{
+
+    private BindPhoneContract.Presenter mPresenter;
 
     public static BindPhoneFragment newInstance() {
         return new BindPhoneFragment();
@@ -32,5 +39,19 @@ public class BindPhoneFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.bind_phone_fragment, container, false);
 
         return view;
+    }
+
+    @Override
+    public void setPresenter(BindPhoneContract.Presenter presenter) {
+        this.mPresenter=presenter;
+    }
+
+    @Override
+    public void bindPhoneRequestSuccess(Map<String, Object> map) {
+        dismissProgressDialog();
+        int code = HandleMapUtil.getInt(map, "code");
+        if (code == 0) {
+            ToastUtil.showToast(getActivity(),"绑定成功");
+        }
     }
 }
