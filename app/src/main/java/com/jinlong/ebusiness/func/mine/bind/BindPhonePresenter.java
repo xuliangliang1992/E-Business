@@ -1,6 +1,5 @@
 package com.jinlong.ebusiness.func.mine.bind;
 
-import com.jinlong.ebusiness.func.mine.password.ModifyPasswordContract;
 import com.jinlong.ebusiness.http.request.LoanDataSource;
 import com.jinlong.ebusiness.http.subscriber.SaicObserver;
 import com.xll.mvplib.schedulers.BaseSchedulerProvider;
@@ -12,7 +11,7 @@ import io.reactivex.disposables.Disposable;
 
 /**
  * @author xll
- * @date 2018/9/21
+ * @date 2018/9/22
  */
 
 public class BindPhonePresenter implements BindPhoneContract.Presenter {

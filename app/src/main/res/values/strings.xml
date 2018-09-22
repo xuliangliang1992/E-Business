@@ -18,7 +18,7 @@
     <string name="home">首页</string>
     <string name="classify">分类</string>
     <string name="cart">购物车</string>
-    <string name="add_shipping_address">添加收货地址</string>
+    <string name="add_shipping_address">添加新地址</string>
     <string name="modify_shipping_address">编辑收货地址</string>
     <string name="consignee">收货人</string>
     <string name="phone_no">手机号</string>

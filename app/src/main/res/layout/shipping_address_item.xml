@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/y10"
+        android:textSize="@dimen/text_size_32"
+        android:textColor="@color/black_3"
+        android:paddingEnd="@dimen/padding_left_right"
+        android:paddingStart="@dimen/padding_left_right"
+        android:paddingTop="@dimen/y30"
+        android:text="王小明" />
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/y10"
+        android:paddingTop="@dimen/y30"
+        android:textSize="@dimen/text_size_26"
+        android:textColor="@color/black_7"
+        app:layout_constraintStart_toEndOf="@id/tv_name"
+        android:text="15021676796" />
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y80"
+        android:maxLines="2"
+        android:paddingEnd="@dimen/x130"
+        android:textSize="@dimen/text_size_26"
+        android:textColor="@color/black_3"
+        android:paddingStart="@dimen/padding_left_right"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"
+        android:text="7号楼5楼上海市浦东新碧波路619号微电子港新碧波路619号微电子港新碧波路619号微电子港新碧波路619号微电子港7号楼5楼" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/g_mail"
+        android:layout_marginEnd="@dimen/x50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

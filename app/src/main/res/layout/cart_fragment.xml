@@ -14,7 +14,14 @@
         android:id="@+id/cg_cart_empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:constraint_referenced_ids="imageView,textView,textView2,btn_buy" />
+
+    <android.support.constraint.Group
+        android:id="@+id/cg_cart_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="elv_cart,tv_all_choose,tv_total,tv_total_money,tv_order" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -55,12 +62,85 @@
         android:id="@+id/btn_buy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_34"
         android:layout_marginTop="@dimen/y160"
         android:background="@drawable/shape_btn_to_buy"
         android:text="去选购"
         android:textColor="@color/black_3"
+        android:textSize="@dimen/text_size_34"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <ExpandableListView
+        android:id="@+id/elv_cart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/tv_all_choose"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/tv_all_choose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:button="@null"
+        android:checked="true"
+        android:drawablePadding="@dimen/x10"
+        android:drawableStart="@drawable/selector_rb_all_choose"
+        android:padding="@dimen/padding_left_right"
+        android:text="全选"
+        android:textColor="@color/black_45"
+        android:textSize="@dimen/text_size_28"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/elv_cart" />
+
+    <TextView
+        android:id="@+id/tv_total"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:text="总计:"
+        android:textColor="@color/black_78"
+        android:textSize="@dimen/text_size_28"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_all_choose"
+        app:layout_constraintEnd_toStartOf="@+id/tv_total_money"
+        app:layout_constraintStart_toEndOf="@+id/tv_all_choose"
+        app:layout_constraintTop_toTopOf="@+id/tv_all_choose" />
+
+    <TextView
+        android:id="@+id/tv_total_money"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingEnd="@dimen/x10"
+        android:paddingStart="@dimen/x10"
+        android:text="$888.00"
+        android:textColor="@color/dialog_red"
+        android:textSize="@dimen/text_size_36"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_all_choose"
+        app:layout_constraintEnd_toStartOf="@+id/tv_order"
+        app:layout_constraintStart_toEndOf="@+id/tv_total"
+        app:layout_constraintTop_toTopOf="@+id/tv_all_choose" />
+
+    <TextView
+        android:id="@+id/tv_order"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@color/btn_click"
+        android:gravity="center"
+        android:paddingEnd="@dimen/x80"
+        android:paddingStart="@dimen/x80"
+        android:text="去下单"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_36"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_all_choose"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_total_money"
+        app:layout_constraintTop_toTopOf="@+id/tv_all_choose" />
 </android.support.constraint.ConstraintLayout>

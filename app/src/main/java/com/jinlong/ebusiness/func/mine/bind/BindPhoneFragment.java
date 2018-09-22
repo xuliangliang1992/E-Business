@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
-import com.jinlong.ebusiness.func.mine.password.ModifyPasswordContract;
 import com.xll.mvplib.utils.HandleMapUtil;
 import com.xll.mvplib.utils.ToastUtil;
 
@@ -17,7 +16,7 @@ import java.util.Map;
 
 /**
  * @author xll
- * @date 2018/9/21
+ * @date 2018/9/22
  */
 
 public class BindPhoneFragment extends BaseFragment implements BindPhoneContract.View{
