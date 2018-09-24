@@ -5,6 +5,8 @@ import com.jinlong.ebusiness.http.request.LoanDataSource;
 import com.jinlong.ebusiness.http.subscriber.SaicObserver;
 import com.xll.mvplib.schedulers.BaseSchedulerProvider;
 
+import java.util.Map;
+
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
@@ -44,15 +46,15 @@ public class SettingPresenter implements SettingContract.Presenter {
         mLoanDataSource.logout(fragment)
                 .subscribeOn(mSchedulerProvider.io())
                 .observeOn(mSchedulerProvider.ui())
-                .subscribe(new SaicObserver<Object>(mView) {
+                .subscribe(new SaicObserver<Map<String, Object> >(mView) {
                     @Override
                     public void onSubscribe(Disposable d) {
                         mCompositeSubscription.add(d);
                     }
 
                     @Override
-                    public void onNext(Object obj) {
-                        mView.logoutSuccess();
+                    public void onNext(Map<String, Object> map) {
+                        mView.logoutSuccess(map);
                     }
                 });
     }

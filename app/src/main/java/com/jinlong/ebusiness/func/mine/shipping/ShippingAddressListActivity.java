@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseActivity;
+import com.jinlong.ebusiness.injection.Injection;
 import com.xll.mvplib.utils.ActivityUtils;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -26,6 +27,9 @@ public class ShippingAddressListActivity extends BaseActivity {
             fragment = ShippingAddressListFragment.newInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), fragment, R.id.fl_content);
         }
+
+        new ShippingAddressListPresenter(Injection.provideLoanRepository(), fragment, Injection.provideSchedulerProvider());
+
     }
 
     @Override

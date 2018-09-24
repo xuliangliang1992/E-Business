@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
+import com.jinlong.ebusiness.constant.Constant;
 import com.xll.mvplib.utils.HandleMapUtil;
 import com.xll.mvplib.utils.ToastUtil;
 
@@ -49,8 +50,17 @@ public class BindPhoneFragment extends BaseFragment implements BindPhoneContract
     public void bindPhoneRequestSuccess(Map<String, Object> map) {
         dismissProgressDialog();
         int code = HandleMapUtil.getInt(map, "code");
-        if (code == 0) {
-            ToastUtil.showToast(getActivity(),"绑定成功");
+        String msg = HandleMapUtil.getString(map, "msg");
+        switch (code) {
+            case 0:
+                ToastUtil.showToast(getActivity(),"绑定成功");
+                break;
+            case Constant.UNAUTHORIZED:
+                toLoginActivity();
+                break;
+            default:
+                ToastUtil.showToast(getActivity(), msg);
+                break;
         }
     }
 }

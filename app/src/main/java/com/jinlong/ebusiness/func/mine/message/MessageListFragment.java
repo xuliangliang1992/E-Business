@@ -34,6 +34,10 @@ public class MessageListFragment extends BaseFragment {
     Unbinder unbinder;
     private String[] titles;
     private List<BaseFragment> fragments;
+    private SystemMessageFragment mSystemMessageFragment;
+    public int getCurrPosition() {
+        return mViewPager.getCurrentItem();
+    }
 
     public static MessageListFragment newInstance() {
         return new MessageListFragment();
@@ -48,7 +52,7 @@ public class MessageListFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.message_list_fragment, container, false);
+        View view = inflater.inflate(R.layout.message_fragment, container, false);
         unbinder = ButterKnife.bind(this, view);
         MainViewPagerAdapter mAdapter = new MainViewPagerAdapter(getFragmentManager(), fragments, titles);
         mViewPager.setAdapter(mAdapter);
@@ -66,8 +70,12 @@ public class MessageListFragment extends BaseFragment {
     private void initResource() {
         fragments = new ArrayList<>();
         titles = new String[]{getString(R.string.system_message), getString(R.string.notification)};
-        fragments.add(SystemMessageFragment.newInstance());
+        mSystemMessageFragment = SystemMessageFragment.newInstance();
+        fragments.add(mSystemMessageFragment);
         fragments.add(NotificationFragment.newInstance());
     }
 
+    public SystemMessageFragment getSystemMessageFragment() {
+        return mSystemMessageFragment;
+    }
 }

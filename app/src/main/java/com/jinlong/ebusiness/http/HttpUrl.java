@@ -20,7 +20,7 @@ public class HttpUrl {
     /**
      * 登出
      */
-    public static final String LOGOUT_URL = Constant.BASE_URL + "Admin/logout";
+    public static final String LOGOUT_URL = Constant.BASE_URL + "Api/User/logout";
     /**
      * 修改密码
      */
@@ -41,10 +41,15 @@ public class HttpUrl {
      * 收货地址
      */
     public static final String CONSIGNEE_ADDRESS_URL = Constant.BASE_URL + "Api/Consignee/list";
+
+    /**
+     * 省市区
+     */
+    public static final String CITY_URL = Constant.BASE_URL + "Common/territory/list";
     /**
      * 删除收获地址
      */
-    public static final String CONSIGNEE_ADDRESS_DELETE_URL = Constant.BASE_URL + "Api/Consignee/delete";
+    public static final String CONSIGNEE_ADDRESS_DELETE_URL = Constant.BASE_URL + "Api/Consignee/deleteByIds";
     /**
      * 新增收获地址
      */

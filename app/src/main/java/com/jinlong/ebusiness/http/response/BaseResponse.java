@@ -9,8 +9,15 @@ public class BaseResponse<T> {
     private String msg;
 
     private int code;
-
     private T data;
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T t) {
+        this.data = t;
+    }
 
     public String getMsg() {
         return msg;
@@ -28,11 +35,4 @@ public class BaseResponse<T> {
         this.code = code;
     }
 
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
 }

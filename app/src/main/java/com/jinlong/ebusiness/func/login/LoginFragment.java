@@ -14,9 +14,11 @@ import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
 import com.jinlong.ebusiness.base.MainApplication;
 import com.jinlong.ebusiness.constant.Constant;
+import com.jinlong.ebusiness.dialog.DialogManager;
 import com.jinlong.ebusiness.func.login.password.ForgetPasswordActivity;
 import com.jinlong.ebusiness.func.login.register.RegisterActivity;
 import com.jinlong.ebusiness.utils.TextChangeUtil;
+import com.xll.mvplib.dialog.DialogClickListener;
 import com.xll.mvplib.utils.CheckRegUtil;
 import com.xll.mvplib.utils.HandleMapUtil;
 import com.xll.mvplib.utils.SharePreferenceUtil;
@@ -65,11 +67,16 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.login_fragment, container, false);
         unbinder = ButterKnife.bind(this, view);
+        mEtEmail.setText("1299945061@qq.com");
+        mEtPassword.setText("123456");
         List<EditText> list = new ArrayList<>();
         list.add(mEtEmail);
         list.add(mEtPassword);
-        mEtEmail.addTextChangedListener(new TextChangeUtil(list, mBtnLogin, mCbAgree));
-        mEtPassword.addTextChangedListener(new TextChangeUtil(list, mBtnLogin, mCbAgree));
+        List<Integer> lengthList = new ArrayList<>();
+        lengthList.add(1);
+        lengthList.add(6);
+        mEtEmail.addTextChangedListener(new TextChangeUtil(list, lengthList, mBtnLogin, mCbAgree));
+        mEtPassword.addTextChangedListener(new TextChangeUtil(list, lengthList, mBtnLogin, mCbAgree));
         return view;
     }
 
@@ -129,10 +136,33 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     @Override
     public void loginSuccess(Map<String, Object> map) {
         dismissProgressDialog();
-        Map<String, Object> data = (Map<String, Object>) map.get("data");
-        String token = HandleMapUtil.getString(data, "token");
-        SharePreferenceUtil.getInstance().put(MainApplication.getInstance().getApplicationContext(), Constant.SHARED_PREFERENCE_FILE_NAME, SharePreferenceUtil.TOKEN, token);
+        int code = HandleMapUtil.getInt(map, "code");
+        String msg = HandleMapUtil.getString(map, "msg");
+        switch (code) {
+            case 0:
+                Map<String, Object> data = (Map<String, Object>) map.get("data");
+                String token = HandleMapUtil.getString(data, "token");
+                SharePreferenceUtil.getInstance().put(MainApplication.getInstance().getApplicationContext(), Constant.SHARED_PREFERENCE_FILE_NAME, SharePreferenceUtil.TOKEN, token);
+                toMainActivity();
+                break;
+            case 1002:
+                DialogManager.getInstance().showMessagerDialog(getActivity(), msg, getString(R.string.cancel), "找回密码",
+                        0, new DialogClickListener() {
+                            @Override
+                            public void leftClickListener() {
 
-        toMainActivity();
+                            }
+
+                            @Override
+                            public void rightClickListener() {
+                                routeTo(ForgetPasswordActivity.class);
+                            }
+                        });
+                break;
+            default:
+                ToastUtil.showToast(getActivity(), msg);
+                break;
+        }
+
     }
 }

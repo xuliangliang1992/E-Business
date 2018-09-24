@@ -23,42 +23,46 @@ public class TextChangeUtil implements TextWatcher {
     private TextView btn;
     private CheckBox cb;
     private List<EditText> mList = new ArrayList<>();
+    private List<Integer> lengthList = new ArrayList<>();
+    private int length;
     private int btnEnableBackground;
     private int btnDisabledBackground;
 
-    public TextChangeUtil(EditText editText, TextView btn) {
+    public TextChangeUtil(EditText editText, int length, TextView btn) {
         mList.add(editText);
+        lengthList.add(length);
         this.btn = btn;
         this.btnEnableBackground = R.drawable.shape_btn_click;
         this.btnDisabledBackground = R.drawable.shape_btn_un_click;
     }
 
-    public TextChangeUtil(EditText editText, TextView btn, int btnEnableBackground, int btnDisabledBackground) {
-        this(editText, btn);
+    public TextChangeUtil(EditText editText, int length, TextView btn, int btnEnableBackground, int btnDisabledBackground) {
+        this(editText, length, btn);
         this.btnEnableBackground = btnEnableBackground;
         this.btnDisabledBackground = btnDisabledBackground;
     }
 
-    public TextChangeUtil(List<EditText> mList, TextView btn) {
+    public TextChangeUtil(List<EditText> mList, List<Integer> lengthList, TextView btn) {
         this.mList = mList;
+        this.lengthList = lengthList;
         this.btn = btn;
         this.btnEnableBackground = R.drawable.shape_btn_click;
         this.btnDisabledBackground = R.drawable.shape_btn_un_click;
     }
 
-    public TextChangeUtil(List<EditText> mList, TextView btn, int btnEnableBackground, int btnDisabledBackground) {
-        this(mList, btn);
+    public TextChangeUtil(List<EditText> mList, List<Integer> lengthList, TextView btn, int btnEnableBackground, int btnDisabledBackground) {
+        this(mList, lengthList, btn);
         this.btnEnableBackground = btnEnableBackground;
         this.btnDisabledBackground = btnDisabledBackground;
     }
 
-    public TextChangeUtil(List<EditText> mList, TextView btn, CheckBox cb) {
-        this(mList, btn);
+    public TextChangeUtil(List<EditText> mList, List<Integer> lengthList, TextView btn, CheckBox cb) {
+        this(mList, lengthList, btn);
         this.cb = cb;
     }
 
-    public TextChangeUtil(List<EditText> mList, TextView btn, CheckBox cb, int btnEnableBackground, int btnDisabledBackground) {
-        this(mList, btn, btnEnableBackground, btnDisabledBackground);
+    public TextChangeUtil(List<EditText> mList, List<Integer> lengthList, TextView btn, CheckBox cb, int btnEnableBackground, int btnDisabledBackground) {
+        this(mList, lengthList, btn, btnEnableBackground, btnDisabledBackground);
         this.cb = cb;
     }
 
@@ -82,7 +86,7 @@ public class TextChangeUtil implements TextWatcher {
                 btn.setEnabled(false);
                 break;
             } else {
-                if (mList.get(i).getText().length() > 5) {
+                if (mList.get(i).getText().length() > lengthList.get(i)) {
                     if (i + 1 == mList.size()) {
                         btn.setBackgroundResource(btnEnableBackground);
                         btn.setEnabled(true);

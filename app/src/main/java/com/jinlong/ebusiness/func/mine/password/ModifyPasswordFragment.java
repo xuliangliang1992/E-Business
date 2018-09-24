@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
+import com.jinlong.ebusiness.constant.Constant;
 import com.jinlong.ebusiness.utils.TextChangeUtil;
 import com.xll.mvplib.utils.HandleMapUtil;
 import com.xll.mvplib.utils.ToastUtil;
@@ -61,9 +62,13 @@ public class ModifyPasswordFragment extends BaseFragment implements ModifyPasswo
         list.add(mEtOldPassword);
         list.add(mEtNewPassword);
         list.add(mEtNewPasswordAgain);
-        mEtOldPassword.addTextChangedListener(new TextChangeUtil(list, mBtnSure));
-        mEtNewPassword.addTextChangedListener(new TextChangeUtil(list, mBtnSure));
-        mEtNewPasswordAgain.addTextChangedListener(new TextChangeUtil(list, mBtnSure));
+        List<Integer> lengthList = new ArrayList<>();
+        lengthList.add(6);
+        lengthList.add(6);
+        lengthList.add(6);
+        mEtOldPassword.addTextChangedListener(new TextChangeUtil(list, lengthList, mBtnSure));
+        mEtNewPassword.addTextChangedListener(new TextChangeUtil(list, lengthList, mBtnSure));
+        mEtNewPasswordAgain.addTextChangedListener(new TextChangeUtil(list, lengthList, mBtnSure));
         return view;
     }
 
@@ -98,8 +103,17 @@ public class ModifyPasswordFragment extends BaseFragment implements ModifyPasswo
     public void modifyPwdRequestSuccess(Map<String, Object> map) {
         dismissProgressDialog();
         int code = HandleMapUtil.getInt(map, "code");
-        if (code == 0) {
-            toLoginActivity();
+        String msg = HandleMapUtil.getString(map, "msg");
+        switch (code) {
+            case 0:
+                toLoginActivity();
+                break;
+            case Constant.UNAUTHORIZED:
+                toLoginActivity();
+                break;
+            default:
+                ToastUtil.showToast(getActivity(), msg);
+                break;
         }
     }
 }

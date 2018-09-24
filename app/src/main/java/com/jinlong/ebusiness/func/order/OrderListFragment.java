@@ -48,7 +48,7 @@ public class OrderListFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.message_list_fragment, container, false);
+        View view = inflater.inflate(R.layout.message_fragment, container, false);
         unbinder = ButterKnife.bind(this, view);
         MainViewPagerAdapter mAdapter = new MainViewPagerAdapter(getFragmentManager(), fragments,titles);
         mViewPager.setAdapter(mAdapter);

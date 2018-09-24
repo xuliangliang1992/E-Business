@@ -89,7 +89,7 @@
         android:button="@null"
         android:checked="true"
         android:drawablePadding="@dimen/x10"
-        android:drawableStart="@drawable/selector_rb_all_choose"
+        android:drawableStart="@drawable/selector_cb_all_choose"
         android:padding="@dimen/padding_left_right"
         android:text="全选"
         android:textColor="@color/black_45"

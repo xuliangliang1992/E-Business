@@ -1,32 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/y100"
-        android:background="@android:color/white"
-        android:paddingEnd="@dimen/padding_left_right"
-        android:paddingStart="@dimen/padding_left_right"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:tabGravity="fill"
-        app:tabIndicatorHeight="2dp"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="@android:color/holo_red_light"
-        app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
-        app:tabTextColor="@color/black_9"/>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager"
+    <com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView
+        android:id="@+id/rv_message"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/cb_all_choose"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tab_layout"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Group
+        android:id="@+id/cg_all_choose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="cb_all_choose,iv_read,iv_delete" />
+
+    <CheckBox
+        android:id="@+id/cb_all_choose"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:button="@null"
+        android:checked="false"
+        android:drawablePadding="@dimen/x10"
+        android:drawableStart="@drawable/selector_cb_all_choose"
+        android:padding="@dimen/padding_left_right"
+        android:text="全选"
+        android:textColor="@color/black_45"
+        android:textSize="@dimen/text_size_28"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iv_read"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_message" />
+
+    <ImageView
+        android:id="@+id/iv_read"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:paddingEnd="@dimen/padding_left_right"
+        android:paddingStart="@dimen/padding_left_right"
+        android:src="@drawable/eye"
+        app:layout_constraintBottom_toBottomOf="@+id/cb_all_choose"
+        app:layout_constraintEnd_toStartOf="@+id/iv_delete"
+        app:layout_constraintTop_toTopOf="@+id/cb_all_choose" />
+
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:paddingEnd="@dimen/padding_left_right"
+        android:paddingStart="@dimen/padding_left_right"
+        android:src="@drawable/delete_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/cb_all_choose"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cb_all_choose" />
 </android.support.constraint.ConstraintLayout>

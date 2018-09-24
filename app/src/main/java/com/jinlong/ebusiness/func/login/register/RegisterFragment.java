@@ -11,8 +11,10 @@ import android.widget.EditText;
 
 import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
+import com.jinlong.ebusiness.constant.Constant;
 import com.jinlong.ebusiness.utils.TextChangeUtil;
 import com.xll.mvplib.utils.CheckRegUtil;
+import com.xll.mvplib.utils.HandleMapUtil;
 import com.xll.mvplib.utils.ToastUtil;
 
 import java.util.ArrayList;
@@ -61,9 +63,13 @@ public class RegisterFragment extends BaseFragment implements RegisterContract.V
         list.add(mEtEmail);
         list.add(mEtPassword);
         list.add(mEtPasswordAgain);
-        mEtEmail.addTextChangedListener(new TextChangeUtil(list, mBtnRegister));
-        mEtPassword.addTextChangedListener(new TextChangeUtil(list, mBtnRegister));
-        mEtPasswordAgain.addTextChangedListener(new TextChangeUtil(list, mBtnRegister));
+        List<Integer> lengthList = new ArrayList<>();
+        lengthList.add(1);
+        lengthList.add(6);
+        lengthList.add(6);
+        mEtEmail.addTextChangedListener(new TextChangeUtil(list, lengthList, mBtnRegister));
+        mEtPassword.addTextChangedListener(new TextChangeUtil(list, lengthList, mBtnRegister));
+        mEtPasswordAgain.addTextChangedListener(new TextChangeUtil(list, lengthList, mBtnRegister));
         return view;
     }
 
@@ -75,7 +81,19 @@ public class RegisterFragment extends BaseFragment implements RegisterContract.V
     @Override
     public void registerSuccess(Map<String, Object> map) {
         dismissProgressDialog();
-        toLoginActivity();
+        int code = HandleMapUtil.getInt(map, "code");
+        String msg = HandleMapUtil.getString(map, "msg");
+        switch (code) {
+            case 0:
+                toLoginActivity();
+                break;
+            case Constant.UNAUTHORIZED:
+                toLoginActivity();
+                break;
+            default:
+                ToastUtil.showToast(getActivity(), msg);
+                break;
+        }
     }
 
     @Override

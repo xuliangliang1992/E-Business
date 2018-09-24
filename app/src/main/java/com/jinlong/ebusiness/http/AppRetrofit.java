@@ -70,7 +70,7 @@ public class AppRetrofit {
                         String token = (String) SharePreferenceUtil.getInstance().get(MainApplication.getInstance().getApplicationContext(),
                                 Constant.SHARED_PREFERENCE_FILE_NAME, SharePreferenceUtil.TOKEN, "");
                         Request newRequest = chain.request().newBuilder()
-                                .addHeader("Authorization", token)
+                                .addHeader("Authorization", "edc4796d-1aa5-4178-9c24-c653ebfd21c4")
                                 .build();
                         return chain.proceed(newRequest);
                     }

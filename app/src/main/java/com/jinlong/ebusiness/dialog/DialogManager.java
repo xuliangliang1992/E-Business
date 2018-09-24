@@ -52,8 +52,8 @@ public class DialogManager {
         mDialog.show();
     }
 
-    public void showTipsDialog(Context context, String title, String message,String btnText, DialogClickListener clickListener) {
-        mDialog = new TipsDialog(context, title, message, btnText,clickListener);
+    public void showTipsDialog(Context context, String title, String message, String btnText, DialogClickListener clickListener) {
+        mDialog = new TipsDialog(context, title, message, btnText, clickListener);
         mDialog.show();
         Window window = mDialog.getWindow();
         window.setWindowAnimations(R.style.dialogWindowAnim);
@@ -75,10 +75,14 @@ public class DialogManager {
     }
 
     public void showProgressHUD(Context context) {
+
         hud = ProgressHUD.create(context)
                 .setStyle(ProgressHUD.Style.SPIN_INDETERMINATE)
                 .setLabel("正在通讯中,请稍候...");
-        hud.show();
+        if (!hud.isShowing()) {
+            hud.show();
+        }
+
     }
 
     public void dismissProgressHUD() {

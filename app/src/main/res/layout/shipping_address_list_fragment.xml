@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <android.support.v7.widget.RecyclerView
+    <com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView
         android:id="@+id/rv_shipping_address"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -14,13 +14,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <TextView
         android:id="@+id/btn_add_shipping_address"
         style="@style/base_text"
         android:layout_marginBottom="@dimen/y50"
         android:layout_marginEnd="@dimen/padding_left_right"
         android:layout_marginStart="@dimen/padding_left_right"
         android:background="@color/black_f3"
+        android:gravity="center"
         android:text="@string/add_shipping_address"
         android:textColor="@color/black_3"
         android:textSize="@dimen/text_size_34"

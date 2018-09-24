@@ -93,7 +93,7 @@ public class MessagerDialog extends BaseDialog {
             mTvCancel.setText(left);
         }
         if (!StringUtil.isStringNull(right)) {
-            mTvCancel.setText(right);
+            mTvSure.setText(right);
         }
         if (!StringUtil.isStringNull(message)) {
             mTvMessage.setText(message);

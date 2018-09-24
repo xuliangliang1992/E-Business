@@ -53,7 +53,7 @@ public class ForgetPasswordFragment extends BaseFragment implements ForgetPasswo
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.forget_password_fragment, container, false);
         unbinder = ButterKnife.bind(this, view);
-        mEtEmail.addTextChangedListener(new TextChangeUtil(mEtEmail, mBtnForgetPwd));
+        mEtEmail.addTextChangedListener(new TextChangeUtil(mEtEmail, 1, mBtnForgetPwd));
         return view;
     }
 
@@ -65,23 +65,28 @@ public class ForgetPasswordFragment extends BaseFragment implements ForgetPasswo
     @Override
     public void forgetPwdRequestSuccess(Map<String, Object> map) {
         dismissProgressDialog();
-        String msg = HandleMapUtil.getString(map, "msg");
         int code = HandleMapUtil.getInt(map, "code");
-        String title = code == 0 ? "找回密码成功" : "找回密码失败";
+        String msg = HandleMapUtil.getString(map, "msg");
+        switch (code) {
+            case 0:
+                DialogManager.getInstance().showTipsDialog(getActivity(), "找回密码成功",
+                        msg, "去登录", new DialogClickListener() {
+                            @Override
+                            public void leftClickListener() {
 
-        DialogManager.getInstance().showTipsDialog(getActivity(), title,
-                msg, "去登录", new DialogClickListener() {
-                    @Override
-                    public void leftClickListener() {
+                            }
 
-                    }
-
-                    @Override
-                    public void rightClickListener() {
-                        toLoginActivity();
-                    }
-                }
-        );
+                            @Override
+                            public void rightClickListener() {
+                                toLoginActivity();
+                            }
+                        }
+                );
+                break;
+            default:
+                ToastUtil.showToast(getActivity(), msg);
+                break;
+        }
     }
 
     @Override

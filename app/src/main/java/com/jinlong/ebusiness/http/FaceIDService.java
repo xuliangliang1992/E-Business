@@ -1,5 +1,8 @@
 package com.jinlong.ebusiness.http;
 
+import com.jinlong.ebusiness.http.response.BaseResponse;
+import com.jinlong.ebusiness.http.response.MessageListBean;
+
 import java.util.Map;
 
 import io.reactivex.Observable;
@@ -48,7 +51,7 @@ public interface FaceIDService {
      * @return
      */
     @POST
-    Observable<Map<String,Object>> logout(@Url String url);
+    Observable<Map<String, Object>> logout(@Url String url);
 
     /**
      * 修改密码
@@ -92,5 +95,91 @@ public interface FaceIDService {
     @FormUrlEncoded
     @POST
     Observable<Map<String, Object>> bindEmail(@Url String url, @FieldMap Map<String, Object> map);
+
+    /**
+     * 收货地址
+     *
+     * @param url
+     * @return
+     */
+    @GET
+    Observable<Map<String, Object>> getConsigneeAddressList(@Url String url);
+
+    /**
+     * 省市区
+     *
+     * @param url
+     * @return
+     */
+    @GET
+    Observable<Map<String, Object>> getCity(@Url String url);
+
+    /**
+     * 删除收货地址
+     *
+     * @param url
+     * @param map
+     * @return
+     */
+    @FormUrlEncoded
+    @POST
+    Observable<Map<String, Object>> deleteConsigneeAddressByIds(@Url String url, @FieldMap Map<String, Object> map);
+
+    /**
+     * 编辑收货地址
+     *
+     * @param url
+     * @param map
+     * @return
+     */
+    @FormUrlEncoded
+    @POST
+    Observable<Map<String, Object>> editConsigneeAddress(@Url String url, @FieldMap Map<String, Object> map);
+
+    /**
+     * 添加收货地址
+     *
+     * @param url
+     * @param map
+     * @return
+     */
+    @FormUrlEncoded
+    @POST
+    Observable<Map<String, Object>> addConsigneeAddress(@Url String url, @FieldMap Map<String, Object> map);
+
+    /**
+     * 消息列表
+     *
+     * @param url
+     * @param type
+     * @param page
+     * @param rows
+     * @return
+     */
+    @GET
+    Observable<BaseResponse<MessageListBean>> getMessageList(@Url String url, @Query("type") int type, @Query("page") int page, @Query("rows") int rows);
+
+    /**
+     * 消息已读
+     *
+     * @param url
+     * @param map
+     * @return
+     */
+    @FormUrlEncoded
+    @POST
+    Observable<Map<String, Object>> readMessageByIds(@Url String url, @FieldMap Map<String, Object> map);
+
+    /**
+     * 删除消息
+     *
+     * @param url
+     * @param map
+     * @return
+     */
+    @FormUrlEncoded
+    @POST
+    Observable<Map<String, Object>> deleteMessageByIds(@Url String url, @FieldMap Map<String, Object> map);
+
 }
 

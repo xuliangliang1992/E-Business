@@ -11,7 +11,11 @@ import com.jinlong.ebusiness.R;
 import com.jinlong.ebusiness.base.BaseFragment;
 import com.jinlong.ebusiness.base.MainApplication;
 import com.jinlong.ebusiness.constant.Constant;
+import com.xll.mvplib.utils.HandleMapUtil;
 import com.xll.mvplib.utils.SharePreferenceUtil;
+import com.xll.mvplib.utils.ToastUtil;
+
+import java.util.Map;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -51,11 +55,24 @@ public class SettingFragment extends BaseFragment implements SettingContract.Vie
     }
 
     @Override
-    public void logoutSuccess() {
+    public void logoutSuccess(Map<String, Object> map) {
         dismissProgressDialog();
-        SharePreferenceUtil.getInstance().put(MainApplication.getInstance().getApplicationContext(),
-                Constant.SHARED_PREFERENCE_FILE_NAME,SharePreferenceUtil.TOKEN, "");
-        toLoginActivity();
+        int code = HandleMapUtil.getInt(map, "code");
+        String msg = HandleMapUtil.getString(map, "msg");
+        switch (code) {
+            case 0:
+                SharePreferenceUtil.getInstance().put(MainApplication.getInstance().getApplicationContext(),
+                        Constant.SHARED_PREFERENCE_FILE_NAME, SharePreferenceUtil.TOKEN, "");
+                toLoginActivity();
+                break;
+            case Constant.UNAUTHORIZED:
+                toLoginActivity();
+                break;
+            default:
+                ToastUtil.showToast(getActivity(), msg);
+                break;
+        }
+
     }
 
     @Override

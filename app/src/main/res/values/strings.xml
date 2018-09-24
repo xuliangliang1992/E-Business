@@ -40,4 +40,5 @@
     <string name="login">登录</string>
     <string name="login_success">登录成功</string>
     <string name="pwd_differ">两次密码不一致</string>
+    <string name="text_default">默认</string>
 </resources>

@@ -28,6 +28,7 @@
         app:layout_constraintTop_toBottomOf="@id/iv_result"/>
 
     <TextView
+        android:id="@+id/tv_content"
         style="@style/base_text"
         android:layout_marginEnd="@dimen/x100"
         android:layout_marginStart="@dimen/x100"

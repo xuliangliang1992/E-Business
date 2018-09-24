@@ -77,13 +77,20 @@
         <item name="android:gravity">center_vertical|end</item>
     </style>
 
-    <style name="modify_password_edit_text" parent="base_text">
+    <style name="edit_text" parent="base_text">
         <item name="android:background">@null</item>
-        <item name="android:layout_marginLeft">@dimen/x50</item>
-        <item name="android:layout_marginRight">@dimen/x50</item>
         <item name="android:textSize">@dimen/text_size_32</item>
         <item name="android:textColorHint">@color/hint</item>
+    </style>
 
+    <style name="modify_password_edit_text" parent="edit_text">
+        <item name="android:layout_marginLeft">@dimen/x50</item>
+        <item name="android:layout_marginRight">@dimen/x50</item>
+    </style>
+
+    <style name="address_edit_text" parent="edit_text">
+        <item name="android:layout_marginLeft">@dimen/x50</item>
+        <item name="android:layout_marginRight">@dimen/x50</item>
     </style>
 
     <style name="button" parent="base_text">

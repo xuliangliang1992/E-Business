@@ -8,6 +8,7 @@ import com.jinlong.ebusiness.dialog.DialogManager;
 import com.jinlong.ebusiness.func.login.LoginActivity;
 import com.jinlong.ebusiness.func.main.MainActivity;
 import com.xll.mvplib.subscriber.HttpObserver;
+import com.xll.mvplib.utils.ToastUtil;
 
 /**
  * @author xll
@@ -75,7 +76,7 @@ public abstract class BaseFragment extends Fragment implements HttpObserver {
 
     @Override
     public void httpOtherException(String message) {
-
+        ToastUtil.showToast(getActivity(),message);
     }
 
 }
